@@ -1,4 +1,4 @@
-# SkillSage - Freelance Services Marketplace
+# TaskWave - Freelance Services Marketplace
 
 This is a next freelance services marketplace web app to create, read, update, filter and delete freelance services. This app created by Next.js(v14), MongoDB, TailwindCSS, Ant Design and TypeScript.
 
