@@ -3,7 +3,8 @@ import { ConfigProvider } from 'antd';
 const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const primaryColor: string = '#102C57'; // #35374B
   const defaultButtonBg: string = '#D7D7D7';
-  const lihkColor: string = '#401F71';
+  const linkColor: string = '#430A5D';
+  const linkHoverColor: string = '#00224D';
 
   return (
     <ConfigProvider
@@ -19,7 +20,9 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
             defaultBg: defaultButtonBg,
             defaultHoverBg: defaultButtonBg,
             defaultHoverBorderColor: 'none',
-            colorLink: lihkColor,
+            colorLink: linkColor,
+            colorLinkHover: linkHoverColor,
+            colorLinkActive: linkHoverColor,
           },
           Input: {
             controlHeight: 44,
