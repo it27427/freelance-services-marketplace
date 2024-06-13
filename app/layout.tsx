@@ -18,8 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <html lang='en'>
+    <html lang='en'>
+      <ClerkProvider>
         <body
           className={`${mulish.className} m-0 p-0`}
           suppressHydrationWarning={true}
@@ -28,7 +28,7 @@ export default function RootLayout({
             <main>{children}</main>
           </ThemeProvider>
         </body>
-      </html>
-    </ClerkProvider>
+      </ClerkProvider>
+    </html>
   );
 }
