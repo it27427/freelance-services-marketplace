@@ -5,7 +5,7 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Freelance Services Marketplace',
+  title: 'SkillSage - Freelance Services Marketplace',
   description: 'Next freelance services marketplace app',
 };
 
