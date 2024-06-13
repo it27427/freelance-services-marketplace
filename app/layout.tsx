@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 };
 
 import ThemeProvider from '@/provider/ThemeProvider';
+import { ClerkProvider } from '@clerk/nextjs';
 
 export default function RootLayout({
   children,
@@ -17,15 +18,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
-      <body
-        className={`${mulish.className} m-0 p-0`}
-        suppressHydrationWarning={true}
-      >
-        <ThemeProvider>
-          <main>{children}</main>
-        </ThemeProvider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang='en'>
+        <body
+          className={`${mulish.className} m-0 p-0`}
+          suppressHydrationWarning={true}
+        >
+          <ThemeProvider>
+            <main>{children}</main>
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
