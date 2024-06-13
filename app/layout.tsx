@@ -18,9 +18,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={mulish.className} suppressHydrationWarning={true}>
+      <body
+        className={`${mulish.className} m-0 p-0`}
+        suppressHydrationWarning={true}
+      >
         <ThemeProvider>
-          <div>{children}</div>
+          <main>{children}</main>
         </ThemeProvider>
       </body>
     </html>

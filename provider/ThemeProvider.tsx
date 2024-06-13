@@ -1,5 +1,7 @@
+import { ConfigProvider } from 'antd';
+
 const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  return <main>{children}</main>;
+  return <ConfigProvider>{children}</ConfigProvider>;
 };
 
 export default ThemeProvider;
