@@ -1,14 +1,23 @@
 import { ConfigProvider } from 'antd';
 
 const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+  const primaryColor: string = '#102C57'; // #35374B
+
   return (
     <ConfigProvider
       theme={{
         token: {
-          colorPrimary: '#102C57',
-          borderRadius: 0,
+          colorPrimary: primaryColor,
         },
-        components: {},
+        components: {
+          Button: {
+            borderRadius: 0,
+            controlOutline: 'none',
+          },
+          Input: {
+            borderRadius: 200,
+          },
+        },
       }}
     >
       {children}

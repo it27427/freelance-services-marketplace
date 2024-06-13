@@ -1,4 +1,5 @@
-import { Button, Flex } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
+import { Button, Flex, Input } from 'antd';
 
 export default function Home() {
   return (
@@ -10,6 +11,8 @@ export default function Home() {
         <Button type='text'>Text Button</Button>
         <Button type='link'>Link Button</Button>
       </Flex>
+
+      <Input placeholder='large size' prefix={<UserOutlined />} />
     </div>
   );
 }
