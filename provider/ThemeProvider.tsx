@@ -6,6 +6,7 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
       theme={{
         token: {
           colorPrimary: '#102C57',
+          borderRadius: 0,
         },
         components: {},
       }}
