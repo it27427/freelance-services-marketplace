@@ -6,7 +6,6 @@ import { Button, Flex, Input } from 'antd';
 
 export default async function Home() {
   const loggedInUser = await currentUser();
-  console.log(loggedInUser);
 
   const clerkID = loggedInUser?.id;
   const fullName = loggedInUser?.firstName + ' ' + loggedInUser?.lastName;
