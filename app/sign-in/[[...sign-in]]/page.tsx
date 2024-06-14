@@ -5,8 +5,8 @@ import Image from 'next/image';
 
 export default function Page() {
   return (
-    <div className='flex items-center w-full bg-slate-200 h-screen overflow-hidden'>
-      <div className='lg:w-1/2 hidden lg:flex h-full items-center justify-center'>
+    <div className='flex items-center w-full bg-white h-screen overflow-hidden'>
+      <div className='lg:w-1/2 hidden lg:flex bg-slate-100 h-full items-center justify-center'>
         <figure>
           <Image
             src={signInThumb}
