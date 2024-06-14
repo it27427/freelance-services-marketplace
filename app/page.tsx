@@ -1,4 +1,4 @@
-// import { UserButton } from '@clerk/nextjs';
+import { UserButton } from '@clerk/nextjs';
 import { currentUser } from '@clerk/nextjs/server';
 
 import { UserOutlined } from '@ant-design/icons';
@@ -39,7 +39,7 @@ export default async function Home() {
           <img src={imageURL} alt='Avatar' width='100' height='100' />
         </li>
       </ul>
-      {/* <UserButton afterSignOutUrl='sign-in' /> */}
+      <UserButton afterSignOutUrl='/sign-in' />
     </div>
   );
 }
