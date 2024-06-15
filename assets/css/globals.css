@@ -31,40 +31,23 @@
   height: 2.75rem;
   min-height: 2.75rem;
   max-height: 2.75rem;
+  border-radius: 0;
 }
 
 .cl-button,
 .cl-internal-ttumny[data-variant='solid'][data-color='primary'] {
   box-shadow: none;
+  border-radius: 0;
 }
 
-/* 
-.cl-internal-ttumny[data-variant='solid'][data-color='primary'] {
-  box-shadow: none;
+.cl-internal-14ikjd9[type='tel'],
+.cl-internal-14ikjd9 {
+  border-radius: 0;
 }
 
-.cl-internal-ttumny,
-.cl-internal-1gblaxi,
-.cl-input,
-.cl-formFieldInput {
+.cl-internal-1dpploh {
   height: 2.75rem;
   min-height: 2.75rem;
   max-height: 2.75rem;
-  border-color: #d7d7d7;
+  border-radius: 0;
 }
-
-.cl-internal-ttumny:hover,
-.cl-internal-ttumny:focus,
-.cl-internal-1gblaxi:hover,
-.cl-internal-1gblaxi:focus,
-.cl-input:hover,
-.cl-input:focus,
-.cl-formFieldInput:hover,
-.cl-formFieldInput:focus {
-  box-shadow: none;
-}
-
-.cl-internal-1gblaxi[data-variant='default'],
-.cl-internal-1gblaxi[data-variant='default']:hover {
-  box-shadow: none;
-} */
