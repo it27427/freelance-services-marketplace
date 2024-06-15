@@ -22,3 +22,49 @@
 .cl-internal-4x6jej {
   background: white;
 }
+
+.cl-internal-ttumny,
+.cl-internal-1gblaxi,
+.cl-input,
+.cl-formFieldInput {
+  box-shadow: none;
+  height: 2.75rem;
+  min-height: 2.75rem;
+  max-height: 2.75rem;
+}
+
+.cl-button,
+.cl-internal-ttumny[data-variant='solid'][data-color='primary'] {
+  box-shadow: none;
+}
+
+/* 
+.cl-internal-ttumny[data-variant='solid'][data-color='primary'] {
+  box-shadow: none;
+}
+
+.cl-internal-ttumny,
+.cl-internal-1gblaxi,
+.cl-input,
+.cl-formFieldInput {
+  height: 2.75rem;
+  min-height: 2.75rem;
+  max-height: 2.75rem;
+  border-color: #d7d7d7;
+}
+
+.cl-internal-ttumny:hover,
+.cl-internal-ttumny:focus,
+.cl-internal-1gblaxi:hover,
+.cl-internal-1gblaxi:focus,
+.cl-input:hover,
+.cl-input:focus,
+.cl-formFieldInput:hover,
+.cl-formFieldInput:focus {
+  box-shadow: none;
+}
+
+.cl-internal-1gblaxi[data-variant='default'],
+.cl-internal-1gblaxi[data-variant='default']:hover {
+  box-shadow: none;
+} */
