@@ -1,5 +1,8 @@
+import colors from 'colors';
 import mongoose from 'mongoose';
 import config from './config';
+
+colors.enable();
 
 const connectDB = async () => {
   const url = config.db.url;
@@ -8,7 +11,7 @@ const connectDB = async () => {
     await mongoose.connect(url, {
       dbName: 'FREELANCE-SERVICES',
     });
-    console.log('Database Connected Successfully!');
+    console.log(`Database Connected Successfully!`.bgBlue);
   } catch (error) {
     console.log('Database connected failed!', error);
     process.exit(1);
