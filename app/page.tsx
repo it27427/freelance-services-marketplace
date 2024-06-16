@@ -1,7 +1,7 @@
 import { UserButton } from '@clerk/nextjs';
 import { currentUser } from '@clerk/nextjs/server';
 
-import connectDB from '@/config/mongodb-connection';
+import connectDB from '@/config/mongodb.connection';
 import { UserOutlined } from '@ant-design/icons';
 import { Button, Flex, Input } from 'antd';
 
