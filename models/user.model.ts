@@ -28,6 +28,10 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+if (mongoose.models && mongoose.models['users']) {
+  delete mongoose.models['users'];
+}
+
 const User = mongoose.model('User', userSchema);
 
 export default User;
