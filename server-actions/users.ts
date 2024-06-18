@@ -10,6 +10,13 @@ export const getCurrentUserFromMongodb = async () => {
   try {
     const clerkUser = await currentUser();
     const user = await User.findOne({ clerkUserId: clerkUser?.id });
+
+    if (user) {
+      return {
+        success: true,
+        data: JSON.parse(JSON.stringify(user)),
+      };
+    }
   } catch (error: any) {
     return {
       success: false,
