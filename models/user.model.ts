@@ -1,6 +1,14 @@
-import mongoose from 'mongoose';
+import mongoose, { Document, Model } from 'mongoose';
 
-const userSchema = new mongoose.Schema(
+interface IUser extends Document {
+  clerkUserId: string;
+  name: string;
+  email: string;
+  phone: string;
+  profilePic: string;
+}
+
+const userSchema = new mongoose.Schema<IUser>(
   {
     clerkUserId: {
       type: String,
@@ -32,6 +40,6 @@ if (mongoose.models && mongoose.models['users']) {
   delete mongoose.models['users'];
 }
 
-const User = mongoose.model('User', userSchema);
+const User: Model<IUser> = mongoose.model<IUser>('User', userSchema);
 
 export default User;
