@@ -20,6 +20,10 @@ export const getCurrentUserFromMongodb = async () => {
 
     const newUser = new User({
       name: clerkUser?.firstName + ' ' + clerkUser?.lastName,
+      email: clerkUser?.emailAddresses[0].emailAddress,
+      clerkUserId: clerkUser?.id,
+      phone: clerkUser?.phoneNumbers[0].phoneNumber,
+      profilePic: clerkUser?.imageUrl,
     });
   } catch (error: any) {
     return {
