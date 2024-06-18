@@ -2,6 +2,7 @@ import { UserButton } from '@clerk/nextjs';
 import { currentUser } from '@clerk/nextjs/server';
 
 import connectDB from '@/config/mongodb.connection';
+import { getCurrentUserFromMongodb } from '@/server-actions/users';
 import { UserOutlined } from '@ant-design/icons';
 import { Button, Flex, Input } from 'antd';
 
@@ -15,6 +16,8 @@ export default async function Home() {
   const imageURL = loggedInUser?.imageUrl;
   const email = loggedInUser?.emailAddresses[0].emailAddress;
   const phone = loggedInUser?.phoneNumbers[0].phoneNumber;
+
+  await getCurrentUserFromMongodb();
 
   return (
     <div className='p-12'>
