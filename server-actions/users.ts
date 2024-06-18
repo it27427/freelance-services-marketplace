@@ -25,6 +25,8 @@ export const getCurrentUserFromMongodb = async () => {
       phone: clerkUser?.phoneNumbers[0].phoneNumber,
       profilePic: clerkUser?.imageUrl,
     });
+
+    await newUser.save();
   } catch (error: any) {
     return {
       success: false,
