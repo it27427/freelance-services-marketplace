@@ -1,5 +1,4 @@
 import { UserButton } from '@clerk/nextjs';
-import { currentUser } from '@clerk/nextjs/server';
 
 import connectDB from '@/config/mongodb.connection';
 import { getCurrentUserFromMongodb } from '@/server-actions/users';
@@ -9,15 +8,9 @@ import { Button, Flex, Input } from 'antd';
 connectDB();
 
 export default async function Home() {
-  const loggedInUser = await currentUser();
-
-  const clerkID = loggedInUser?.id;
-  const fullName = loggedInUser?.firstName + ' ' + loggedInUser?.lastName;
-  const imageURL = loggedInUser?.imageUrl;
-  const email = loggedInUser?.emailAddresses[0].emailAddress;
-  const phone = loggedInUser?.phoneNumbers[0].phoneNumber;
-
-  await getCurrentUserFromMongodb();
+  const response = await getCurrentUserFromMongodb();
+  const user = JSON.parse(JSON.stringify(response.data));
+  const { clerkUserId, name, email, phone, profilePic: imageURL } = user;
 
   return (
     <div className='p-12'>
@@ -32,7 +25,7 @@ export default async function Home() {
 
       <ul>
         <li>
-          <strong>Name: </strong> {fullName}
+          <strong>Name: </strong> {name}
         </li>
         <li>
           <strong>Email: </strong> {email}
