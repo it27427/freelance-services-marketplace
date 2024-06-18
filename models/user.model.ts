@@ -1,4 +1,4 @@
-import mongoose, { Document, Model } from 'mongoose';
+import mongoose, { Document } from 'mongoose';
 
 interface IUser extends Document {
   clerkUserId: string;
@@ -36,10 +36,6 @@ const userSchema = new mongoose.Schema<IUser>(
   { timestamps: true }
 );
 
-if (mongoose.models && mongoose.models['users']) {
-  delete mongoose.models['users'];
-}
-
-const User: Model<IUser> = mongoose.model<IUser>('User', userSchema);
+const User = mongoose.models.User || mongoose.model<IUser>('User', userSchema);
 
 export default User;

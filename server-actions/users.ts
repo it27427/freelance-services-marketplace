@@ -9,12 +9,12 @@ connectDB();
 export const getCurrentUserFromMongodb = async () => {
   try {
     const clerkUser = await currentUser();
-    const user = await User.findOne({ clerkUserId: clerkUser?.id });
+    const existUser = await User.findOne({ clerkUserId: clerkUser?.id });
 
-    if (user) {
+    if (existUser) {
       return {
         success: true,
-        data: JSON.parse(JSON.stringify(user)),
+        data: JSON.parse(JSON.stringify(existUser)),
       };
     }
 
