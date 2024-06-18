@@ -17,6 +17,10 @@ export const getCurrentUserFromMongodb = async () => {
         data: JSON.parse(JSON.stringify(user)),
       };
     }
+
+    const newUser = new User({
+      name: clerkUser?.firstName + ' ' + clerkUser?.lastName,
+    });
   } catch (error: any) {
     return {
       success: false,
