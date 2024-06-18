@@ -27,6 +27,11 @@ export const getCurrentUserFromMongodb = async () => {
     });
 
     await newUser.save();
+
+    return {
+      success: true,
+      data: JSON.parse(JSON.stringify(newUser)),
+    };
   } catch (error: any) {
     return {
       success: false,
