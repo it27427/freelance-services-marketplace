@@ -1,6 +1,6 @@
 import { Flex } from 'antd';
 
-const LayoutProvider = ({ children }) => {
+const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <Flex>
       <div>Sidebar</div>
