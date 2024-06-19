@@ -1,14 +1,13 @@
 import Sidebar from '@/components/Sidebar';
-import { Flex } from 'antd';
 
 const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
   return (
-    <Flex>
-      <div>
+    <div className='flex gap-5 h-screen'>
+      <div className='h-full hidden lg:block lg:w-64'>
         <Sidebar />
       </div>
-      <main>{children}</main>
-    </Flex>
+      <main className='p-5 lg:w-[calc(100%-16rem)]'>{children}</main>
+    </div>
   );
 };
 
