@@ -4,7 +4,7 @@ const LayoutProvider = ({ children }) => {
   return (
     <Flex>
       <div>Sidebar</div>
-      <div>{children}</div>
+      <main>{children}</main>
     </Flex>
   );
 };
