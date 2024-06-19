@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description: 'Next freelance services marketplace app',
 };
 
+import LayoutProvider from '@/provider/LayoutProvider';
 import ThemeProvider from '@/provider/ThemeProvider';
 import { ClerkProvider } from '@clerk/nextjs';
 
@@ -25,7 +26,7 @@ export default function RootLayout({
           suppressHydrationWarning={true}
         >
           <ThemeProvider>
-            <main>{children}</main>
+            <LayoutProvider>{children}</LayoutProvider>
           </ThemeProvider>
         </body>
       </html>
