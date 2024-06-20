@@ -1,5 +1,9 @@
 import Link from 'next/link';
+import { AiOutlineHome } from 'react-icons/ai';
 import { FiUser } from 'react-icons/fi';
+import { GrList } from 'react-icons/gr';
+import { MdOutlineTaskAlt } from 'react-icons/md';
+import { PiSignOut } from 'react-icons/pi';
 
 import BrandLogo from '@/components/BrandLogo';
 
@@ -8,27 +12,27 @@ const Sidebar = () => {
     {
       name: 'Home',
       href: '/',
-      icon: '<FiUser />',
+      icon: <AiOutlineHome />,
     },
     {
       name: 'Profile',
       href: '/profile',
-      icon: '',
+      icon: <FiUser />,
     },
     {
       name: 'Bids',
       href: '/profile/bids',
-      icon: '',
+      icon: <GrList />,
     },
     {
       name: 'Tasks',
       href: '/profile/tasks',
-      icon: '',
+      icon: <MdOutlineTaskAlt />,
     },
     {
       name: 'Logout',
       href: '/logout',
-      icon: '',
+      icon: <PiSignOut />,
     },
   ];
 
@@ -42,13 +46,14 @@ const Sidebar = () => {
       </header>
 
       <div className='mt-10'>
-        <ul className='flex flex-col gap-3 list-none m-0 p-0'>
+        <ul className='flex flex-col gap-2 list-none m-0 p-0'>
           {menuItems.map((item, index) => (
             <li key={index}>
               <Link
                 href={item.href}
-                className='flex gap-5 p-3 rounded no-underline'
+                className='flex items-center gap-3 p-3 rounded no-underline text-sm'
               >
+                {item.icon}
                 {item.name}
               </Link>
             </li>
