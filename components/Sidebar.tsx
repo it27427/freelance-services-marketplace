@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { FiUser } from 'react-icons/fi';
 
 import BrandLogo from '@/components/BrandLogo';
 
@@ -7,7 +8,7 @@ const Sidebar = () => {
     {
       name: 'Home',
       href: '/',
-      icon: '',
+      icon: '<FiUser />',
     },
     {
       name: 'Profile',
@@ -40,11 +41,16 @@ const Sidebar = () => {
         <span className='text-secondary text-sm'>Username</span>
       </header>
 
-      <div className='mt-20'>
-        <ul>
+      <div className='mt-10'>
+        <ul className='flex flex-col gap-3 list-none m-0 p-0'>
           {menuItems.map((item, index) => (
             <li key={index}>
-              <Link href={item.href}>{item.name}</Link>
+              <Link
+                href={item.href}
+                className='flex gap-5 p-3 rounded no-underline'
+              >
+                {item.name}
+              </Link>
             </li>
           ))}
         </ul>
