@@ -1,3 +1,4 @@
+'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -9,6 +10,11 @@ import { PiSignOut } from 'react-icons/pi';
 
 const MainMenu = () => {
   const pathName = usePathname();
+
+  const linkClasses = ({ isActive }: { isActive: boolean }): string =>
+    isActive
+      ? 'bg-secondary text-white flex items-center gap-3 p-3 rounded no-underline text-sm'
+      : 'flex items-center gap-3 p-3 rounded no-underline text-sm';
 
   const menuItems = [
     {
@@ -48,7 +54,9 @@ const MainMenu = () => {
         <li key={index}>
           <Link
             href={item.href}
-            className='flex items-center gap-3 p-3 rounded no-underline text-sm'
+            className={`flex items-center gap-3 p-3 rounded no-underline text-sm transition hover:bg-secondary hover:text-white ${
+              item.isActive ? 'bg-secondary text-white' : ''
+            }`}
           >
             {item.icon}
             {item.name}
