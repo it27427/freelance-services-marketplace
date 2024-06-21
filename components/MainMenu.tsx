@@ -1,6 +1,6 @@
 'use client';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useRouter } from 'next/router';
 
 import { AiOutlineHome } from 'react-icons/ai';
 import { FiUser } from 'react-icons/fi';
@@ -10,12 +10,10 @@ import { PiSignOut } from 'react-icons/pi';
 
 const MainMenu = () => {
   const pathName = usePathname();
+  const router = useRouter();
   const iconSize = 15;
 
-  const linkClasses = ({ isActive }: { isActive: boolean }): string =>
-    isActive
-      ? 'bg-secondary text-white flex items-center gap-3 p-3 rounded no-underline text-sm'
-      : 'flex items-center gap-3 p-3 rounded no-underline text-sm';
+  const onLogout = () => {};
 
   const menuItems = [
     {
@@ -53,16 +51,22 @@ const MainMenu = () => {
     <ul className='flex flex-col gap-2 list-none m-0 p-0'>
       {menuItems.map((item, index) => (
         <li key={index}>
-          <Link
-            href={item.href}
+          <button
             className={`flex items-center gap-3 p-3 rounded no-underline text-sm transition hover:bg-secondary hover:text-white ${
               item.isActive ? 'bg-secondary text-white' : 'text-slate-600'
             }`}
-            role='button'
+            type='button'
+            onClick={() => {
+              if (item.name === 'logout') {
+                onLogout();
+              } else {
+                router.push(item.href);
+              }
+            }}
           >
             {item.icon}
             {item.name}
-          </Link>
+          </button>
         </li>
       ))}
     </ul>
