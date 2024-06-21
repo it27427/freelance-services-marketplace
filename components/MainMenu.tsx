@@ -55,7 +55,7 @@ const MainMenu = () => {
           <Link
             href={item.href}
             className={`flex items-center gap-3 p-3 rounded no-underline text-sm transition hover:bg-secondary hover:text-white ${
-              item.isActive ? 'bg-secondary text-white' : ''
+              item.isActive ? 'bg-secondary text-white' : 'text-slate-600'
             }`}
           >
             {item.icon}
