@@ -1,6 +1,5 @@
 'use client';
-import { usePathname } from 'next/navigation';
-import { useRouter } from 'next/router';
+import { usePathname, useRouter } from 'next/navigation';
 
 import { AiOutlineHome } from 'react-icons/ai';
 import { FiUser } from 'react-icons/fi';
