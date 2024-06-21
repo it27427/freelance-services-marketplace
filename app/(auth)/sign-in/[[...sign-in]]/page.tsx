@@ -1,7 +1,8 @@
 'use client';
-import signInThumb from '@/assets/images/auth/login.svg';
 import { SignIn } from '@clerk/nextjs';
 import Image from 'next/image';
+
+import signInThumb from '@/assets/images/auth/login.svg';
 
 export default function Page() {
   return (

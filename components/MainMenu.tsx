@@ -13,7 +13,9 @@ const MainMenu = () => {
   const router = useRouter();
   const iconSize = 15;
 
-  const onLogout = () => {};
+  const onLogout = () => {
+    console.log('Test');
+  };
 
   const menuItems = [
     {
