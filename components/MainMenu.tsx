@@ -53,7 +53,7 @@ const MainMenu = () => {
       {menuItems.map((item, index) => (
         <li key={index}>
           <button
-            className={`flex items-center gap-3 p-3 rounded no-underline text-sm transition hover:bg-secondary hover:text-white ${
+            className={`flex items-center gap-3 w-full p-3 rounded no-underline text-sm transition hover:bg-secondary hover:text-white ${
               item.isActive ? 'bg-secondary text-white' : 'text-slate-600'
             }`}
             type='button'
