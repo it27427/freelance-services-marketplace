@@ -10,6 +10,7 @@ import { PiSignOut } from 'react-icons/pi';
 
 const MainMenu = () => {
   const pathName = usePathname();
+  const iconSize = 15;
 
   const linkClasses = ({ isActive }: { isActive: boolean }): string =>
     isActive
@@ -20,31 +21,31 @@ const MainMenu = () => {
     {
       name: 'Home',
       href: '/',
-      icon: <AiOutlineHome />,
+      icon: <AiOutlineHome size={iconSize} />,
       isActive: pathName === '/',
     },
     {
       name: 'Profile',
       href: '/profile',
-      icon: <FiUser />,
+      icon: <FiUser size={iconSize} />,
       isActive: pathName === '/profile',
     },
     {
       name: 'Bids',
       href: '/profile/bids',
-      icon: <GrList />,
+      icon: <GrList size={iconSize} />,
       isActive: pathName === '/profile/bids',
     },
     {
       name: 'Tasks',
       href: '/profile/tasks',
-      icon: <MdOutlineTaskAlt />,
+      icon: <MdOutlineTaskAlt size={iconSize} />,
       isActive: pathName === '/profile/tasks',
     },
     {
       name: 'Logout',
       href: '/logout',
-      icon: <PiSignOut />,
+      icon: <PiSignOut size={iconSize} />,
     },
   ];
 
@@ -57,6 +58,7 @@ const MainMenu = () => {
             className={`flex items-center gap-3 p-3 rounded no-underline text-sm transition hover:bg-secondary hover:text-white ${
               item.isActive ? 'bg-secondary text-white' : 'text-slate-600'
             }`}
+            role='button'
           >
             {item.icon}
             {item.name}
