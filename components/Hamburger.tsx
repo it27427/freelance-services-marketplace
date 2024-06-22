@@ -10,7 +10,7 @@ const Hamburger = () => {
   };
 
   return (
-    <Button onClick={handleClick} className='w-12 h-12 bg-black'>
+    <Button onClick={handleClick} className='w-12 h-12 bg-secondary rounded'>
       <FaHamburger className='text-white text-lg' />
     </Button>
   );
