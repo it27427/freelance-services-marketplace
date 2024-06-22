@@ -1,5 +1,7 @@
-import MobileLogo from '@/components/MobileLogo';
 import Link from 'next/link';
+
+import Hamburger from '@/components/Hamburger';
+import MobileLogo from '@/components/MobileLogo';
 
 const Header = () => {
   return (
@@ -8,6 +10,8 @@ const Header = () => {
         <Link href='/'>
           <MobileLogo />
         </Link>
+
+        <Hamburger />
       </nav>
     </header>
   );

@@ -1,3 +1,4 @@
+'use client';
 import { FC, MouseEventHandler, ReactNode } from 'react';
 
 interface ButtonProps {
