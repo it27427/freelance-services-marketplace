@@ -6,7 +6,7 @@ import MainMenu from '@/components/MainMenu';
 
 const Sidebar = () => {
   return (
-    <aside className='p-5 w-full h-full sticky top-0 z-50 bg-gray-200'>
+    <aside className='bg-gray-200 h-screen lg:w-56 hidden lg:flex flex-col sticky top-0 z-50 p-5 '>
       <header className='flex flex-col items-center justify-center'>
         <Link href='/'>
           <BrandLogo />
