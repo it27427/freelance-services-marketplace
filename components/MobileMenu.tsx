@@ -12,7 +12,10 @@ const MobileMenu = () => {
 
   return (
     <>
-      <Button className='w-12 h-12 bg-secondary rounded'>
+      <Button
+        onClick={() => setShowSidebar(true)}
+        className='w-12 h-12 bg-secondary rounded'
+      >
         <FaHamburger className='text-white text-lg' />
       </Button>
       <Drawer open={showSidebar} onClose={() => setShowSidebar(false)}>
