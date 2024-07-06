@@ -18,7 +18,11 @@ const MobileMenu = () => {
       >
         <FaHamburger className='text-white text-lg' />
       </Button>
-      <Drawer open={showSidebar} onClose={() => setShowSidebar(false)}>
+      <Drawer
+        open={showSidebar}
+        onClose={() => setShowSidebar(false)}
+        placement='left'
+      >
         <Sidebar />
       </Drawer>
     </>
