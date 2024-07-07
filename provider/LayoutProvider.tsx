@@ -7,9 +7,11 @@ import Sidebar from '@/components/Sidebar';
 const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
   const pathName = usePathname();
   const isPrivate =
-    !pathName.includes('sign-in') || !pathName.includes('sign-up');
+    !pathName.includes('sign-in') && !pathName.includes('sign-up');
 
-  
+  if (!isPrivate) {
+    return <>{children}</>;
+  }
 
   return (
     <div className='flex flex-col lg:flex-row gap-5 h-screen w-full overflow-hidden'>
