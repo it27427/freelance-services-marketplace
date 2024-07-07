@@ -1,6 +1,6 @@
 'use client';
-import { usePathname, useRouter } from 'next/navigation';
 import { useAuth } from '@clerk/nextjs';
+import { usePathname, useRouter } from 'next/navigation';
 
 import { AiOutlineHome } from 'react-icons/ai';
 import { FiUser } from 'react-icons/fi';
@@ -12,9 +12,11 @@ const MainMenu = () => {
   const pathName = usePathname();
   const router = useRouter();
   const iconSize = 15;
+  const { signOut } = useAuth();
 
-  const onLogout = () => {
-    console.log('Test');
+  const onLogout = async () => {
+    await signOut();
+    router.push('/sign-in');
   };
 
   const menuItems = [
