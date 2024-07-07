@@ -48,6 +48,7 @@ const MainMenu = () => {
       name: 'Logout',
       href: '/logout',
       icon: <PiSignOut size={iconSize} />,
+      isActive: pathName === '/profile/tasks',
     },
   ];
 
