@@ -62,7 +62,7 @@ const MainMenu = () => {
             }`}
             type='button'
             onClick={() => {
-              if (item.name === 'logout') {
+              if (item.name === 'Logout') {
                 onLogout();
               } else {
                 router.push(item.href);
