@@ -1,5 +1,6 @@
 'use client';
 import { usePathname, useRouter } from 'next/navigation';
+import { useAuth } from '@clerk/nextjs';
 
 import { AiOutlineHome } from 'react-icons/ai';
 import { FiUser } from 'react-icons/fi';
