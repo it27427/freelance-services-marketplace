@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 
 import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar';
+import Spinner from '@/components/Spinner';
 import { getCurrentUserFromMongodb } from '@/server-actions/users';
 import useUserStore, { UserStoreType } from '@/store/users-store';
 
@@ -20,6 +21,7 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
   const [loading, setLoading] = useState(false);
 
   const getLoggedInUserData = async () => {
+    setLoading(true);
     try {
       setLoading(true);
       const response = await getCurrentUserFromMongodb();
@@ -33,6 +35,7 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
       console.error(error.message);
     } finally {
       setLoading(false);
+      setLoading(true);
     }
   };
 
@@ -45,7 +48,7 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
   if (loading) {
     return (
       <>
-        <p>Loading...</p>
+        <Spinner />
       </>
     );
   }
