@@ -1,9 +1,9 @@
 import { UserType } from '@/interfaces';
 import { create } from 'zustand';
 
-const userStore = create((set) => ({
+const useUserStore = create((set) => ({
   loggedInUserData: null,
   SetLoggedInUserData: (data: UserType) => set({ loggedInUserData: data }),
 }));
 
-export default userStore;
+export default useUserStore;
