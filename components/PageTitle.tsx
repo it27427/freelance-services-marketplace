@@ -1,11 +1,7 @@
-interface TitleProps {
-  title: string;
-}
-
-const PageTitle: React.FC<TitleProps> = ({ title }) => {
+const PageTitle = ({ title }: { title: string }) => {
   return (
     <div>
-      <h2>{title}</h2>
+      <h1 className='text-xl font-semibold capitalize'>{title}</h1>
     </div>
   );
 };
