@@ -3,6 +3,8 @@ import { usePathname } from 'next/navigation';
 
 import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar';
+import { getCurrentUserFromMongodb } from '@/server-actions/users';
+import userStore from '@/store/users-store';
 
 const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
   const pathName = usePathname();
@@ -12,6 +14,19 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
   if (!isPrivate) {
     return <>{children}</>;
   }
+
+  const { SetLoggedInUserData } = userStore();
+  const getLoggedInUserData = async () => {
+    try {
+      const response = await getCurrentUserFromMongodb();
+
+      if (response.success) {
+      } else {
+      }
+    } catch (error: any) {
+      console.error(error.message);
+    }
+  };
 
   return (
     <div className='flex flex-col lg:flex-row gap-5 h-screen w-full overflow-hidden'>
