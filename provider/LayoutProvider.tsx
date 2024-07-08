@@ -21,7 +21,6 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
   const [loading, setLoading] = useState(false);
 
   const getLoggedInUserData = async () => {
-    setLoading(true);
     try {
       setLoading(true);
       const response = await getCurrentUserFromMongodb();
@@ -35,7 +34,6 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
       console.error(error.message);
     } finally {
       setLoading(false);
-      setLoading(true);
     }
   };
 
