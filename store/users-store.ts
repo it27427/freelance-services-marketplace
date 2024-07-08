@@ -7,3 +7,8 @@ const useUserStore = create((set) => ({
 }));
 
 export default useUserStore;
+
+export interface UserStoreType {
+  loggedInUserData: UserType | null;
+  SetLoggedInUserData: (data: UserType) => void;
+}

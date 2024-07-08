@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar';
 import { getCurrentUserFromMongodb } from '@/server-actions/users';
-import useUserStore from '@/store/users-store';
+import useUserStore, { UserStoreType } from '@/store/users-store';
 
 const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
   const pathName = usePathname();
@@ -16,7 +16,7 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
     return <>{children}</>;
   }
 
-  const { SetLoggedInUserData } = useUserStore() as any;
+  const { SetLoggedInUserData } = useUserStore() as UserStoreType;
 
   const getLoggedInUserData = async () => {
     try {
@@ -33,7 +33,9 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   useEffect(() => {
-    getLoggedInUserData();
+    if (isPrivate) {
+      getLoggedInUserData();
+    }
   }, []);
 
   return (
