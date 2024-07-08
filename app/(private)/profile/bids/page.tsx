@@ -1,7 +1,9 @@
+import PageTitle from '@/components/PageTitle';
+
 const BidPage = () => {
   return (
     <div>
-      <h2>BidPage</h2>
+      <PageTitle title='Bids' />
     </div>
   );
 };

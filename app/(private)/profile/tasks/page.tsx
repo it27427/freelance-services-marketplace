@@ -1,7 +1,9 @@
+import PageTitle from '@/components/PageTitle';
+
 const TasksPage = () => {
   return (
     <div>
-      <h2>TasksPage</h2>
+      <PageTitle title='Tasks' />
     </div>
   );
 };

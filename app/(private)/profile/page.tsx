@@ -1,7 +1,9 @@
+import PageTitle from '@/components/PageTitle';
+
 const ProfilePage = () => {
   return (
     <div>
-      <h2>ProfilePage</h2>
+      <PageTitle title='Profile' />
     </div>
   );
 };
