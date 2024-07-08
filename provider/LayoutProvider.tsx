@@ -1,6 +1,6 @@
 'use client';
 import { usePathname } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar';
@@ -17,9 +17,11 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   const { SetLoggedInUserData } = useUserStore() as UserStoreType;
+  const [loading, setLoading] = useState(false);
 
   const getLoggedInUserData = async () => {
     try {
+      setLoading(true);
       const response = await getCurrentUserFromMongodb();
 
       if (response.success) {
@@ -29,6 +31,8 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
       }
     } catch (error: any) {
       console.error(error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -37,6 +41,14 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
       getLoggedInUserData();
     }
   }, []);
+
+  if (loading) {
+    return (
+      <>
+        <p>Loading...</p>
+      </>
+    );
+  }
 
   return (
     <div className='flex flex-col lg:flex-row gap-5 h-screen w-full overflow-hidden'>
