@@ -1,3 +1,4 @@
+import PageTitle from '@/components/PageTitle';
 import connectDB from '@/config/mongodb.connection';
 
 connectDB();
@@ -9,7 +10,7 @@ export default async function Home() {
 
   return (
     <div>
-      <span>Home Page</span>
+      <PageTitle title='Profile' />
     </div>
   );
 }
