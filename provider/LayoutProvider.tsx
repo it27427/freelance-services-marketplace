@@ -59,7 +59,7 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
 
       <Header />
 
-      <main className='px-5 py-10 w-full lg:w-[calc(100%-14rem)] ml-auto h-full overflow-y-scroll'>
+      <main className='px-5 py-10 flex-1 overflow-y-scroll min-h-screen'>
         {children}
       </main>
     </div>
