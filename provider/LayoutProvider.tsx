@@ -1,5 +1,6 @@
 'use client';
 import { usePathname } from 'next/navigation';
+import { useEffect } from 'react';
 
 import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar';
@@ -22,12 +23,18 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
       const response = await getCurrentUserFromMongodb();
 
       if (response.success) {
+        SetLoggedInUserData(response.data);
       } else {
+        console.error(response.message);
       }
     } catch (error: any) {
       console.error(error.message);
     }
   };
+
+  useEffect(() => {
+    getLoggedInUserData();
+  }, []);
 
   return (
     <div className='flex flex-col lg:flex-row gap-5 h-screen w-full overflow-hidden'>
