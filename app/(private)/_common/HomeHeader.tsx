@@ -2,7 +2,7 @@
 
 import useUserStore, { UserStoreType } from '@/store/users-store';
 
-const HomePageHeader = () => {
+const HomeHeader = () => {
   const { loggedInUserData } = useUserStore() as UserStoreType;
   return (
     <>
@@ -14,4 +14,4 @@ const HomePageHeader = () => {
   );
 };
 
-export default HomePageHeader;
+export default HomeHeader;
