@@ -15,11 +15,17 @@ const ProfileForm = () => {
 
   return (
     <Form layout='vertical' autoComplete='off'>
-      <div className='md:grid grid-cols-3 gap-5'>
+      <div className='md:grid grid-cols-2 gap-5'>
         <Form.Item label='Name' name='name'>
           <Input />
         </Form.Item>
         <Form.Item label='Email' name='email'>
+          <Input />
+        </Form.Item>
+      </div>
+
+      <div className='md:grid grid-cols-2 gap-5'>
+        <Form.Item label='Phone' name='phone'>
           <Input />
         </Form.Item>
         <Form.Item label='Portfolio' name='portfolio'>
