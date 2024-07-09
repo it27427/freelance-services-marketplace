@@ -3,9 +3,10 @@ import Copyright from './Copyright';
 
 const Footer = () => {
   return (
-    <footer className='p-4 w-full lg:w-[calc(100%_-_14rem)] lg:ml-auto'>
-      <p className='text-center'>
-        Copyright &copy; <Copyright /> All rights reserved - TaskWave
+    <footer className='p-4 w-full lg:w-[calc(100%_-_15rem)] lg:ml-auto bg-foot'>
+      <p className='text-center text-white text-sm m-0'>
+        Copyright &copy; <Copyright /> All rights reserved &mdash;{' '}
+        <span className='font-bold'>TaskWave</span>
       </p>
     </footer>
   );
