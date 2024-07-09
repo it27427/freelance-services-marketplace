@@ -2,8 +2,10 @@ import { Form } from 'antd';
 
 const ProfileForm = () => {
   return (
-    <Form>
-      <h2>Profile Form</h2>
+    <Form layout='vertical' autoComplete="off">
+      <div className='grid col-3'>
+        <Form.Item label='name' name='name'></Form.Item>
+      </div>
     </Form>
   );
 };
