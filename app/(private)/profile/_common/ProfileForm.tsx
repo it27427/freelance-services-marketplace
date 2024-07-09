@@ -1,8 +1,10 @@
+import { Form } from 'antd';
+
 const ProfileForm = () => {
   return (
-    <div>
+    <Form>
       <h2>Profile Form</h2>
-    </div>
+    </Form>
   );
 };
 
