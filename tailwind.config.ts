@@ -14,6 +14,7 @@ const config: Config = {
         secondary: '#40679E',
         tertiary: '#26355D',
         info: '#1679AB', //#D37676
+        foot: '#405D72',
       },
     },
   },
