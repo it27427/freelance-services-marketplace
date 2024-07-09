@@ -42,7 +42,10 @@ const MainMenu = () => {
       name: 'Tasks',
       href: '/profile/tasks',
       icon: <MdOutlineTaskAlt size={iconSize} />,
-      isActive: pathName === '/profile/tasks',
+      isActive:
+        pathName === '/profile/tasks' ||
+        pathName === '/profile/tasks/create' ||
+        pathName === '/profile/tasks/edit',
     },
     {
       name: 'Logout',
