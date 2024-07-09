@@ -134,3 +134,7 @@ button {
 #bio {
   resize: none;
 }
+
+:where(.css-dev-only-do-not-override-140ko63).ant-tag.ant-tag-has-color, :where(.css-dev-only-do-not-override-140ko63).ant-tag.ant-tag-has-color a, :where(.css-dev-only-do-not-override-140ko63).ant-tag.ant-tag-has-color a:hover, :where(.css-dev-only-do-not-override-140ko63).ant-tag.ant-tag-has-color .anticon-close, :where(.css-dev-only-do-not-override-140ko63).ant-tag.ant-tag-has-color .anticon-close:hover {
+  margin-left: .5rem;
+}

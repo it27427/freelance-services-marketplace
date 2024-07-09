@@ -59,7 +59,8 @@ const ProfileForm = () => {
                 newSkills.splice(index, 1);
                 setSkills(newSkills);
               }}
-              className='px-5 py- text-gray-500 m-0'
+              className='px-5 py-2 bg-secondary text-white m-0'
+              color='secondary'
             >
               {skill}
             </Tag>
