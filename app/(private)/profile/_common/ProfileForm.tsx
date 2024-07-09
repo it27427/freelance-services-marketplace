@@ -27,16 +27,16 @@ const ProfileForm = () => {
   return (
     <Form layout="vertical" autoComplete="off" onFinish={handleSubmit}>
       <div className="md:grid grid-cols-2 gap-5">
-        <Form.Item label="Name" name="name">
+        <Form.Item label="Name" name="name" rules={rules}>
           <Input />
         </Form.Item>
-        <Form.Item label="Email" name="email">
+        <Form.Item label="Email" name="email" rules={rules}>
           <Input />
         </Form.Item>
       </div>
 
       <div className="md:grid grid-cols-2 gap-5">
-        <Form.Item label="Phone" name="phone">
+        <Form.Item label="Phone" name="phone" rules={rules}>
           <Input />
         </Form.Item>
         <Form.Item label="Portfolio" name="portfolio">
@@ -44,7 +44,7 @@ const ProfileForm = () => {
         </Form.Item>
       </div>
 
-      <Form.Item label="Bio" name="bio">
+      <Form.Item label="Bio" name="bio" rules={rules}>
         <Input.TextArea rows={6} />
       </Form.Item>
 
@@ -81,10 +81,6 @@ const ProfileForm = () => {
       </div>
 
       <div className="flex justify-end">
-        {/* <Button type="primary" htmlType="submit">
-          Update
-        </Button> */}
-
         <LoadingButton onClick={1} index={1} type="primary" htmlType="submit">
           Submit
         </LoadingButton>
