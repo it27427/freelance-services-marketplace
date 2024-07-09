@@ -1,3 +1,6 @@
+'use client';
+import { useRouter } from 'next/navigation';
+
 const LinkButton = ({
   title,
   path,
@@ -5,9 +8,15 @@ const LinkButton = ({
 }: {
   title: string;
   path: string;
-  type: string;
+  type: 'reset' | 'submit' | 'button' | undefined;
 }) => {
-  return <div></div>;
+  const router = useRouter();
+
+  return (
+    <button onClick={() => router.push(path)} type={type}>
+      {title}
+    </button>
+  );
 };
 
 export default LinkButton;
