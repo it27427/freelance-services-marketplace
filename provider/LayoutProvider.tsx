@@ -2,6 +2,7 @@
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
+import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar';
 import Spinner from '@/components/Spinner';
@@ -52,16 +53,18 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   return (
-    <div className='flex flex-col lg:flex-row gap-5 h-screen w-full overflow-hidden'>
-      <div className='hidden lg:flex'>
+    <div className='overflow-x-hidden'>
+      <div className='hidden lg:flex '>
         <Sidebar />
       </div>
 
       <Header />
 
-      <main className='px-5 py-10 flex-1 overflow-y-scroll min-h-screen'>
+      <main className='p-5 lg:px-5 lg:py-10 lg:w-[calc(100%_-_14rem)] lg:ml-auto min-h-screen'>
         {children}
       </main>
+
+      <Footer />
     </div>
   );
 };

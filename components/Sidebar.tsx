@@ -9,7 +9,7 @@ const Sidebar = () => {
   const { loggedInUserData } = useUserStore() as UserStoreType;
 
   return (
-    <aside className='bg-gray-200 h-screen lg:w-56 flex flex-col sticky top-0 z-50 p-5 '>
+    <aside className='bg-gray-200 h-screen flex flex-col lg:w-56 lg:fixed top-0 z-50 p-5'>
       <header className='flex flex-col items-center justify-center'>
         <Link href='/'>
           <BrandLogo />

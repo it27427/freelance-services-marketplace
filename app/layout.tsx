@@ -22,7 +22,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang='en'>
         <body
-          className={`${mulish.className} m-0 p-0`}
+          className={`${mulish.className} m-0 p-0 overflow-x-hidden`}
           suppressHydrationWarning={true}
         >
           <ThemeProvider>
