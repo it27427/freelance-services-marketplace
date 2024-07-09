@@ -1,5 +1,5 @@
 import connectDB from '@/config/mongodb.connection';
-import HomePageHeader from './_common/homepage-header';
+import HomeHeader from './_common/HomeHeader';
 
 connectDB();
 
@@ -10,7 +10,7 @@ export default async function Home() {
 
   return (
     <div>
-      <HomePageHeader />
+      <HomeHeader />
     </div>
   );
 }
