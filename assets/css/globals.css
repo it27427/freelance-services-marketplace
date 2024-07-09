@@ -128,6 +128,5 @@ button {
 }
 
 :where(.css-dev-only-do-not-override-140ko63).ant-spin .ant-spin-dot-item {
-  background: #122033;
-  /* background: #6c7275; */
+  background: #40A2E3;
 }
