@@ -6,6 +6,9 @@ interface IUser extends Document {
   email: string;
   phone: string;
   profilePic: string;
+  skills: string[];
+  bio: string;
+  portfolio: string;
 }
 
 const userSchema = new mongoose.Schema<IUser>(
@@ -29,6 +32,18 @@ const userSchema = new mongoose.Schema<IUser>(
       required: true,
     },
     profilePic: {
+      type: String,
+      required: true,
+    },
+    skills: {
+      type: [String],
+      required: true,
+    },
+    bio: {
+      type: String,
+      required: true,
+    },
+    portfolio: {
       type: String,
       required: true,
     },
