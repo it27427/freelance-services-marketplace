@@ -131,10 +131,3 @@ button {
   background: #122033;
   /* background: #6c7275; */
 }
-
-@media screen and (min-width: 62rem) {
-  .mainsec {
-    /* width: calc(100% - 14rem);
-    margin-left: auto; */
-  }
-}

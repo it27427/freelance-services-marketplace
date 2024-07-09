@@ -56,11 +56,11 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
     <>
       <Header />
 
-      <div className='hidden lg:flex lg:w-56 lg:fixed top-0 z-40'>
+      <div className='hidden lg:flex lg:w-60 fixed top-0 z-40'>
         <Sidebar />
       </div>
 
-      <main className='w-full lg:w-[calc(100%_-_14rem)] lg:ml-auto min-h-screen'>
+      <main className='mt-20 lg:mt-0 w-full lg:w-[calc(100%_-_15rem)] lg:ml-auto min-h-screen'>
         <div className='p-5 lg:px-5 lg:py-10'>{children}</div>
       </main>
 
