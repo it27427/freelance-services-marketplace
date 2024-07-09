@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import { FaHamburger } from 'react-icons/fa';
+import { FaHamburger } from "react-icons/fa";
 
-import Button from '@/components/Button';
+import Button from "@/components/Button";
 
 const Hamburger = () => {
   const handleClick = () => {
-    console.log('Hamburger Clicked!');
+    console.log("Hamburger Clicked!");
   };
 
   return (
-    <Button onClick={handleClick} className='w-12 h-12 bg-secondary rounded'>
-      <FaHamburger className='text-white text-lg' />
+    <Button onClick={handleClick} className="w-12 h-12 bg-secondary rounded">
+      <FaHamburger className="text-white text-lg" />
     </Button>
   );
 };
