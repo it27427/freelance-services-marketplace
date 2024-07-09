@@ -1,4 +1,5 @@
 'use client';
+import { Button } from 'antd';
 import { useRouter } from 'next/navigation';
 
 const LinkButton = ({
@@ -8,14 +9,14 @@ const LinkButton = ({
 }: {
   title: string;
   path: string;
-  type: 'reset' | 'submit' | 'button' | undefined;
+  type: 'link' | 'text' | 'default' | 'primary' | 'dashed' | undefined;
 }) => {
   const router = useRouter();
 
   return (
-    <button onClick={() => router.push(path)} type={type}>
+    <Button onClick={() => router.push(path)} type={type}>
       {title}
-    </button>
+    </Button>
   );
 };
 

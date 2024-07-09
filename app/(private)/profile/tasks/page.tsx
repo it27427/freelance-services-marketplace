@@ -1,9 +1,13 @@
+import LinkButton from '@/components/LinkButton';
 import PageTitle from '@/components/PageTitle';
 
 const TasksPage = () => {
   return (
     <div>
-      <PageTitle title='Tasks' />
+      <div className='flex items-center justify-between'>
+        <PageTitle title='Tasks' />
+        <LinkButton title='Create Task' path='/tasks/create' type='primary' />
+      </div>
     </div>
   );
 };
