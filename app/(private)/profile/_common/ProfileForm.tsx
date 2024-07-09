@@ -39,7 +39,7 @@ const ProfileForm = () => {
         <Form.Item label="Phone" name="phone" rules={rules}>
           <Input />
         </Form.Item>
-        <Form.Item label="Portfolio" name="portfolio">
+        <Form.Item label="Portfolio" name="portfolio" rules={rules}>
           <Input />
         </Form.Item>
       </div>
