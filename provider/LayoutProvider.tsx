@@ -53,19 +53,19 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   return (
-    <div className='overflow-x-hidden'>
-      <div className='hidden lg:flex '>
+    <>
+      <Header />
+
+      <div className='hidden lg:flex lg:w-56 lg:fixed top-0 z-40'>
         <Sidebar />
       </div>
 
-      <Header />
-
-      <main className='p-5 lg:px-5 lg:py-10 lg:w-[calc(100%_-_14rem)] lg:ml-auto min-h-screen'>
-        {children}
+      <main className='w-full lg:w-[calc(100%_-_14rem)] lg:ml-auto min-h-screen'>
+        <div className='p-5 lg:px-5 lg:py-10'>{children}</div>
       </main>
 
       <Footer />
-    </div>
+    </>
   );
 };
 
