@@ -6,7 +6,7 @@ const TasksPage = () => {
     <div>
       <div className='flex items-center justify-between'>
         <PageTitle title='Tasks' />
-        <LinkButton title='Create Task' path='/tasks/create' type='primary' />
+        <LinkButton title='Create Task' path='/profile/tasks/create' type='primary' />
       </div>
     </div>
   );
