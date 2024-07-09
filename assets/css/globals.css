@@ -130,3 +130,7 @@ button {
 :where(.css-dev-only-do-not-override-140ko63).ant-spin .ant-spin-dot-item {
   background: #d37676;
 }
+
+#bio {
+  resize: none;
+}
