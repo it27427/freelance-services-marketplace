@@ -1,15 +1,33 @@
 'use client';
-import { Tabs } from 'antd';
+import { Form, Tabs } from 'antd';
 import Basic from './basic';
 import Description from './description';
 import Attachments from './attachments';
 
-const { TabPane } = Tabs;
-
 const TaskForm = () => {
+  const tabItems = [
+    {
+      key: '1',
+      label: 'Basic',
+      children: <Basic />,
+    },
+    {
+      key: '2',
+      label: 'Description',
+      children: <Description />,
+    },
+    {
+      key: '3',
+      label: 'Attachments',
+      children: <Attachments />,
+    },
+  ];
+
   return (
-    <div>
-      <h2>Task Form</h2>
+    <div className='mt-5'>
+      <Form>
+        <Tabs defaultActiveKey='1' items={tabItems} />
+      </Form>
     </div>
   );
 };
