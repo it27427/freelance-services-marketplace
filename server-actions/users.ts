@@ -39,3 +39,5 @@ export const getCurrentUserFromMongodb = async () => {
     };
   }
 };
+
+export const updateUserInMongoDB = async () => {};
