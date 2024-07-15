@@ -58,14 +58,12 @@ button {
   cursor: pointer;
 }
 
-:where(.css-dev-only-do-not-override-140ko63).ant-drawer-right
-  > .ant-drawer-content-wrapper,
-:where(.css-dev-only-do-not-override-140ko63).ant-drawer
-  .ant-drawer-content-wrapper {
+:where(.css-dev-only-do-not-override-140ko63).ant-drawer-right>.ant-drawer-content-wrapper,
+:where(.css-dev-only-do-not-override-140ko63).ant-drawer .ant-drawer-content-wrapper {
   width: 20rem !important;
 }
 
-.ant-drawer-body > aside {
+.ant-drawer-body>aside {
   width: 17.5rem !important;
 }
 
@@ -84,8 +82,7 @@ button {
   z-index: 1000;
 }
 
-:where(.css-dev-only-do-not-override-140ko63).ant-drawer
-  .ant-drawer-header-title {
+:where(.css-dev-only-do-not-override-140ko63).ant-drawer .ant-drawer-header-title {
   width: 3rem;
   height: 3rem;
   display: flex;
@@ -103,10 +100,8 @@ button {
   justify-content: center;
 }
 
-:where(.css-dev-only-do-not-override-140ko63).ant-drawer
-  .ant-drawer-close:hover,
-:where(.css-dev-only-do-not-override-140ko63).ant-drawer
-  .ant-drawer-close:focus {
+:where(.css-dev-only-do-not-override-140ko63).ant-drawer .ant-drawer-close:hover,
+:where(.css-dev-only-do-not-override-140ko63).ant-drawer .ant-drawer-close:focus {
   outline: none;
   box-shadow: none;
   background: transparent;
@@ -120,8 +115,7 @@ button {
   overflow-x: hidden;
 }
 
-:where(.css-dev-only-do-not-override-140ko63).ant-drawer
-  .ant-drawer-body::-webkit-scrollbar {
+:where(.css-dev-only-do-not-override-140ko63).ant-drawer .ant-drawer-body::-webkit-scrollbar {
   display: none;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -135,6 +129,10 @@ button {
   resize: none;
 }
 
-:where(.css-dev-only-do-not-override-140ko63).ant-tag.ant-tag-has-color, :where(.css-dev-only-do-not-override-140ko63).ant-tag.ant-tag-has-color a, :where(.css-dev-only-do-not-override-140ko63).ant-tag.ant-tag-has-color a:hover, :where(.css-dev-only-do-not-override-140ko63).ant-tag.ant-tag-has-color .anticon-close, :where(.css-dev-only-do-not-override-140ko63).ant-tag.ant-tag-has-color .anticon-close:hover {
+:where(.css-dev-only-do-not-override-140ko63).ant-tag.ant-tag-has-color,
+:where(.css-dev-only-do-not-override-140ko63).ant-tag.ant-tag-has-color a,
+:where(.css-dev-only-do-not-override-140ko63).ant-tag.ant-tag-has-color a:hover,
+:where(.css-dev-only-do-not-override-140ko63).ant-tag.ant-tag-has-color .anticon-close,
+:where(.css-dev-only-do-not-override-140ko63).ant-tag.ant-tag-has-color .anticon-close:hover {
   margin-left: .5rem;
 }
