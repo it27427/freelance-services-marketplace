@@ -18,7 +18,7 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
     return <>{children}</>;
   }
 
-  const { SetLoggedInUserData } = useUserStore() as UserStoreType;
+  const { SetLoggedInUserData, loggedInUserData } = useUserStore() as UserStoreType;
   const [loading, setLoading] = useState(false);
 
   const getLoggedInUserData = async () => {
@@ -39,10 +39,10 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   useEffect(() => {
-    if (isPrivate) {
+    if (isPrivate && !loggedInUserData) {
       getLoggedInUserData();
     }
-  }, []);
+  }, [pathName]);
 
   if (loading) {
     return (
