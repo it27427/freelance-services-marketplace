@@ -51,6 +51,10 @@ const userSchema = new mongoose.Schema<IUser>(
   { timestamps: true }
 );
 
+if (mongoose.models && mongoose.models['User']) {
+  delete mongoose.models['User'];
+}
+
 const User = mongoose.models.User || mongoose.model<IUser>('User', userSchema);
 
 export default User;
