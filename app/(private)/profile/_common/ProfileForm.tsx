@@ -10,7 +10,8 @@ const ProfileForm = () => {
   const [skills, setSkills] = useState<string[]>([]);
   const [skillsValue, setSkillsValue] = useState('');
   const [loading, setLoading] = useState(false);
-  const { loggedInUserData }: any = useUserStore() as UserStoreType;
+  const { loggedInUserData, setLoggedInUserData }: any =
+    useUserStore() as UserStoreType;
 
   const handleAddSkills = () => {
     const newSkills = skillsValue.split(',').map((skill) => skill.trim());
@@ -29,11 +30,12 @@ const ProfileForm = () => {
       setLoading(true);
       const response = await updateUserInMongoDB({
         userId: loggedInUserData._id,
-        payload: { ...values, skills }
+        payload: { ...values, skills },
       });
 
-      if(response.success) {
-        message: 'Profile updated successfully!'
+      if (response.success) {
+        message.success('Profile updated successfully!');
+        setLoggedInUserData(response.data);
       }
     } catch (error: any) {
       message.error(error.message);
@@ -106,9 +108,12 @@ const ProfileForm = () => {
       </div>
 
       <div className='flex justify-end'>
-        <LoadingButton onClick={1} index={1} type='primary' htmlType='submit'>
+        {/* <LoadingButton onClick={1} index={1} type='primary' htmlType='submit'>
           Submit
-        </LoadingButton>
+        </LoadingButton> */}
+        <Button htmlType='submit' type='primary' loading={true}>
+          Submit
+        </Button>
       </div>
     </Form>
   );
