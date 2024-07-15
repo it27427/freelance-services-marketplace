@@ -3,10 +3,12 @@ import { useState } from "react";
 
 import { Button, Form, Input, Tag } from "antd";
 import LoadingButton from '@/components/LoadingButton';
+import useUserStore, { UserStoreType } from '@/store/users-store'
 
 const ProfileForm = () => {
   const [skills, setSkills] = useState<string[]>([]);
   const [skillsValue, setSkillsValue] = useState("");
+  const { loggedInUserData } = useUserStore() as UserStoreType;
 
   const handleAddSkills = () => {
     const newSkills = skillsValue.split(",").map((skill) => skill.trim());
