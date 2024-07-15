@@ -44,6 +44,6 @@ if (mongoose.models && mongoose.models['Tasks']) {
   delete mongoose.models['Tasks'];
 }
 
-const Task = mongoose.model('Tasks', taskSchema);
+const Task: any = mongoose.model('Tasks', taskSchema);
 
 export default Task;
