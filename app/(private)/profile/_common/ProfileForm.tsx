@@ -8,7 +8,7 @@ import useUserStore, { UserStoreType } from '@/store/users-store'
 const ProfileForm = () => {
   const [skills, setSkills] = useState<string[]>([]);
   const [skillsValue, setSkillsValue] = useState("");
-  const { loggedInUserData } = useUserStore() as UserStoreType;
+  const { loggedInUserData }: any = useUserStore() as UserStoreType;
 
   const handleAddSkills = () => {
     const newSkills = skillsValue.split(",").map((skill) => skill.trim());
@@ -27,13 +27,13 @@ const ProfileForm = () => {
   const rules = [{required: true, message: 'This field is required.'}]
 
   return (
-    <Form layout="vertical" autoComplete="off" onFinish={handleSubmit}>
+    <Form layout="vertical" autoComplete="off" onFinish={handleSubmit} initialValues={loggedInUserData}>
       <div className="md:grid grid-cols-2 gap-5">
         <Form.Item label="Name" name="name" rules={rules}>
           <Input />
         </Form.Item>
         <Form.Item label="Email" name="email" rules={rules}>
-          <Input />
+          <Input disabled />
         </Form.Item>
       </div>
 
