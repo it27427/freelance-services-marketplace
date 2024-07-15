@@ -40,4 +40,26 @@ export const getCurrentUserFromMongodb = async () => {
   }
 };
 
-export const updateUserInMongoDB = async () => {};
+export const updateUserInMongoDB = async ({
+  userId,
+  payload,
+}: {
+  userId: string;
+  payload: any;
+}) => {
+  try {
+    const updateUser = await User.findByIdAndUpdate(userId, payload, {
+      new: true,
+    });
+
+    return {
+      success: true,
+      data: JSON.parse(JSON.stringify(updateUser)),
+    };
+  } catch (error: any) {
+    return {
+      success: false,
+      message: error.message,
+    };
+  }
+};
