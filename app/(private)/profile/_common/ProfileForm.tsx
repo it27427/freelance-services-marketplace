@@ -1,13 +1,15 @@
 'use client';
 import { useState } from 'react';
 
-import { Button, Form, Input, Tag } from 'antd';
+import { Button, Form, Input, Tag, message } from 'antd';
 import LoadingButton from '@/components/LoadingButton';
 import useUserStore, { UserStoreType } from '@/store/users-store';
+import { updateUserInMongoDB } from '@/server-actions/users';
 
 const ProfileForm = () => {
   const [skills, setSkills] = useState<string[]>([]);
   const [skillsValue, setSkillsValue] = useState('');
+  const [loading, setLoading] = useState(false);
   const { loggedInUserData }: any = useUserStore() as UserStoreType;
 
   const handleAddSkills = () => {
@@ -22,7 +24,23 @@ const ProfileForm = () => {
     setSkills(newSkills);
   };
 
-  const handleSubmit = (value: any) => {};
+  const handleSubmit = async (values: any) => {
+    try {
+      setLoading(true);
+      const response = await updateUserInMongoDB({
+        userId: loggedInUserData._id,
+        payload: { ...values, skills }
+      });
+
+      if(response.success) {
+        message: 'Profile updated successfully!'
+      }
+    } catch (error: any) {
+      message.error(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const rules = [{ required: true, message: 'This field is required.' }];
 
