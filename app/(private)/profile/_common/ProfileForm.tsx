@@ -10,7 +10,7 @@ const ProfileForm = () => {
   const [skills, setSkills] = useState<string[]>([]);
   const [skillsValue, setSkillsValue] = useState('');
   const [loading, setLoading] = useState(false);
-  const { loggedInUserData, setLoggedInUserData }: any =
+  const { loggedInUserData, SetLoggedInUserData }: any =
     useUserStore() as UserStoreType;
 
   const handleAddSkills = () => {
@@ -35,7 +35,7 @@ const ProfileForm = () => {
 
       if (response.success) {
         message.success('Profile updated successfully!');
-        setLoggedInUserData(response.data);
+        SetLoggedInUserData(response.data);
       }
     } catch (error: any) {
       message.error(error.message);
@@ -108,12 +108,12 @@ const ProfileForm = () => {
       </div>
 
       <div className='flex justify-end'>
-        {/* <LoadingButton onClick={1} index={1} type='primary' htmlType='submit'>
+        <LoadingButton onClick={1} index={1} type='primary' htmlType='submit'>
           Submit
-        </LoadingButton> */}
-        <Button htmlType='submit' type='primary' loading={true}>
+        </LoadingButton>
+        {/* <Button htmlType='submit' type='primary' loading={true}>
           Submit
-        </Button>
+        </Button> */}
       </div>
     </Form>
   );
