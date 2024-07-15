@@ -9,7 +9,9 @@ import { updateUserInMongoDB } from '@/server-actions/users';
 const ProfileForm = () => {
   const { loggedInUserData, SetLoggedInUserData }: any =
     useUserStore() as UserStoreType;
-  const [skills, setSkills] = useState<string[]>(loggedInUserData.skills || []);
+  const [skills, setSkills] = useState<string[]>(
+    loggedInUserData?.skills || []
+  );
   const [skillsValue, setSkillsValue] = useState('');
   const [loading, setLoading] = useState(false);
 
