@@ -7,11 +7,11 @@ import useUserStore, { UserStoreType } from '@/store/users-store';
 import { updateUserInMongoDB } from '@/server-actions/users';
 
 const ProfileForm = () => {
-  const [skills, setSkills] = useState<string[]>([]);
-  const [skillsValue, setSkillsValue] = useState('');
-  const [loading, setLoading] = useState(false);
   const { loggedInUserData, SetLoggedInUserData }: any =
     useUserStore() as UserStoreType;
+  const [skills, setSkills] = useState<string[]>(loggedInUserData.skills || []);
+  const [skillsValue, setSkillsValue] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleAddSkills = () => {
     const newSkills = skillsValue.split(',').map((skill) => skill.trim());
@@ -111,9 +111,6 @@ const ProfileForm = () => {
         <LoadingButton onClick={1} index={1} type='primary' htmlType='submit'>
           Submit
         </LoadingButton>
-        {/* <Button htmlType='submit' type='primary' loading={true}>
-          Submit
-        </Button> */}
       </div>
     </Form>
   );
