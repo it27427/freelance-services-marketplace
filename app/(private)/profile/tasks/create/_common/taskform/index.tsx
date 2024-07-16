@@ -26,15 +26,13 @@ const TaskForm = () => {
   ];
   const router = useRouter();
 
-  const handleClick = (path: string) => router.push(path);
-
   return (
     <div className='mt-5'>
       <Form layout='vertical'>
         <Tabs defaultActiveKey='1' items={tabItems} />
 
         <div className='flex justify-end gap-6 mt-12'>
-          <Button onClick={handleClick('/profile/tasks')}>Cancel</Button>
+          <Button onClick={() => router.push('/profile/tasks')}>Cancel</Button>
 
           <LoadingButton onClick={1} index={1} type='primary' htmlType='submit'>
             Save
