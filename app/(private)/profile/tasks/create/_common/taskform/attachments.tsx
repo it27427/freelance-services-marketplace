@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Input, Upload } from 'antd';
+import { DeleteOutlined } from '@ant-design/icons';
 
 const Attachments = ({
   newAttachments,
@@ -32,7 +33,7 @@ const Attachments = ({
     const tempAttachments: any = [...newAttachments];
     tempAttachments.splice(index, 1);
     setnewAttachments(tempAttachments);
-  }
+  };
 
   return (
     <div className='flex flex-col gap-8'>
@@ -46,11 +47,27 @@ const Attachments = ({
             key={index}
             className='border border-gray-300 border-solid flex flex-col gap-5 p-5'
           >
-            <Input placeholder='Attachment Name' value={attachment.name} onChange={(e) => attachmentUpdateHandler(index, 'name', e.target.value)} />
-            <Upload listType='picture-card' beforeUpload={(file) => {attachmentUpdateHandler(index, 'file', file); return false;}} maxCount={1}>
+            <Input
+              placeholder='Attachment Name'
+              value={attachment.name}
+              onChange={(e) =>
+                attachmentUpdateHandler(index, 'name', e.target.value)
+              }
+            />
+            <Upload
+              listType='picture-card'
+              beforeUpload={(file) => {
+                attachmentUpdateHandler(index, 'file', file);
+                return false;
+              }}
+              maxCount={1}
+            >
               <span className='text-sm text-gray-500'>Upload file</span>
             </Upload>
-            <Button onClick={() => removeAttachmentHandler(index)}>Remove</Button>
+            <Button onClick={() => removeAttachmentHandler(index)}>
+              <DeleteOutlined />
+              Remove
+            </Button>
           </div>
         ))}
       </div>

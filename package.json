@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.3.7",
     "@clerk/nextjs": "^5.1.5",
     "antd": "^5.18.1",
     "colors": "^1.4.0",
