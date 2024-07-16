@@ -3,6 +3,7 @@ import { Form, Tabs } from 'antd';
 import Basic from './basic';
 import Description from './description';
 import Attachments from './attachments';
+import LoadingButton from '@/components/LoadingButton';
 
 const TaskForm = () => {
   const tabItems = [
@@ -25,8 +26,14 @@ const TaskForm = () => {
 
   return (
     <div className='mt-5'>
-      <Form>
+      <Form layout='vertical'>
         <Tabs defaultActiveKey='1' items={tabItems} />
+
+      <div className='flex justify-end'>
+        <LoadingButton onClick={1} index={1} type='primary' htmlType='submit'>
+          Save
+        </LoadingButton>
+      </div>
       </Form>
     </div>
   );
