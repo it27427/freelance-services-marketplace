@@ -5,14 +5,15 @@ import { Form, Input, message } from 'antd';
 import LoadingButton from '@/components/LoadingButton';
 import useUserStore, { UserStoreType } from '@/store/users-store';
 import { updateUserInMongoDB } from '@/server-actions/users';
-import AddSkillsForm from './AddSkillsForm';
+import AddSkills from '@/components/AddSkills';
 
 const ProfileForm = () => {
   const { loggedInUserData, SetLoggedInUserData }: any =
     useUserStore() as UserStoreType;
-    const [skills, setSkills] = useState<string[]>(
+  const [skills, setSkills] = useState<string[]>(
     loggedInUserData?.skills || []
   );
+  const [skillsValue, setSkillsValue] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (values: any) => {
@@ -65,7 +66,12 @@ const ProfileForm = () => {
         <Input.TextArea rows={6} />
       </Form.Item>
 
-      <AddSkillsForm />
+      <AddSkills
+        skills={skills}
+        setSkills={setSkills}
+        skillsValue={skillsValue}
+        setSkillsValue={setSkillsValue}
+      />
 
       <div className='flex justify-end'>
         <LoadingButton onClick={1} index={1} type='primary' htmlType='submit'>

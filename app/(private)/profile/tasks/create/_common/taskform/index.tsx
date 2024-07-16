@@ -14,7 +14,6 @@ import { createNewTask } from '@/server-actions/tasks';
 
 const TaskForm = () => {
   const [skills, setSkills] = useState<string[]>([]);
-  const [skillsValue, setSkillsValue] = useState('');
   const [description, setDescription] = useState<string>('');
   const [newAttachments, setnewAttachments] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -23,7 +22,7 @@ const TaskForm = () => {
     {
       key: '1',
       label: 'Basic',
-      children: <Basic skills={skills} setSkills={setSkills} skillsValue={skillsValue} setSkillsValue={setSkillsValue} />,
+      children: <Basic />,
     },
     {
       key: '2',
