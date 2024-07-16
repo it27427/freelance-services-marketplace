@@ -3,8 +3,8 @@ import { uploadBytes, ref, getDownloadURL, getStorage } from 'firebase/storage';
 
 export const uploadFileToFirebaseAndReturnUrl = async (file: File) => {
   try {
-    const storageRef = getStorage(firebaseApp);
-    const fileRef = ref(storageRef, file.name);
+    const storage = getStorage(firebaseApp);
+    const fileRef = ref(storage, file.name);
     const snapShot = await uploadBytes(fileRef, file);
     const downloadURL = await getDownloadURL(snapShot.ref);
 

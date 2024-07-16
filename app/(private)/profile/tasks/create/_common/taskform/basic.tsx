@@ -18,7 +18,7 @@ const Basic = () => {
 
       <Form.Item
         label='Sub Title'
-        name='subtitle'
+        name='subTitle'
         rules={[{ required: true, message: 'Please enter sub title' }]}
       >
         <Input />

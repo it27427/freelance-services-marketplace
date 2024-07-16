@@ -8,15 +8,17 @@ import Description from './description';
 import Attachments from './attachments';
 import LoadingButton from '@/components/LoadingButton';
 
-import useUserStore, { UserStoreType } from '@/store/users-store';
-import { uploadFileToFirebaseAndReturnUrl } from '@/helpers/media';
 import { createNewTask } from '@/server-actions/tasks';
+import { uploadFileToFirebaseAndReturnUrl } from '@/helpers/media';
+import useUserStore, { UserStoreType } from '@/store/users-store';
 
 const TaskForm = () => {
   const [skills, setSkills] = useState<string[]>([]);
   const [description, setDescription] = useState<string>('');
   const [newAttachments, setnewAttachments] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const { loggedInUserData } = useUserStore() as UserStoreType;
+  const user = loggedInUserData?._id;
 
   const tabItems = [
     {
@@ -45,6 +47,7 @@ const TaskForm = () => {
       ),
     },
   ];
+
   const router = useRouter();
 
   const handleSubmit = async (values: any) => {
@@ -62,6 +65,7 @@ const TaskForm = () => {
       values.attachments = newAttachmentsWithURL;
       values.skillsRequired = skills;
       values.description = description;
+      values.user = user;
 
       let response = null;
 
@@ -73,7 +77,7 @@ const TaskForm = () => {
         message.error(response.message);
       }
     } catch (error: any) {
-      console.error(error.message);
+      message.error(error?.message || 'Faild to create task!');
     } finally {
       setLoading(false);
     }
