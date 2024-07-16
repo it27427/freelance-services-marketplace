@@ -1,12 +1,17 @@
 'use client';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Button, Form, Tabs } from 'antd';
+
 import Basic from './basic';
 import Description from './description';
 import Attachments from './attachments';
 import LoadingButton from '@/components/LoadingButton';
-import { useRouter } from 'next/navigation';
 
 const TaskForm = () => {
+  const [description, setDescription] = useState<string>('');
+  const [newAttachments, setnewAttachments] = useState<any[]>([]);
+
   const tabItems = [
     {
       key: '1',
@@ -16,12 +21,22 @@ const TaskForm = () => {
     {
       key: '2',
       label: 'Description',
-      children: <Description />,
+      children: (
+        <Description
+          description={description}
+          setDescription={setDescription}
+        />
+      ),
     },
     {
       key: '3',
       label: 'Attachments',
-      children: <Attachments />,
+      children: (
+        <Attachments
+          newAttachments={newAttachments}
+          setnewAttachments={setnewAttachments}
+        />
+      ),
     },
   ];
   const router = useRouter();
