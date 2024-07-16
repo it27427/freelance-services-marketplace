@@ -13,18 +13,25 @@ import { uploadFileToFirebaseAndReturnUrl } from '@/helpers/media';
 import useUserStore, { UserStoreType } from '@/store/users-store';
 
 const TaskForm = () => {
+  const { loggedInUserData } = useUserStore() as UserStoreType;
   const [skills, setSkills] = useState<string[]>([]);
+  const [skillsValue, setSkillsValue] = useState('');
   const [description, setDescription] = useState<string>('');
   const [newAttachments, setnewAttachments] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const { loggedInUserData } = useUserStore() as UserStoreType;
-  const user = loggedInUserData?._id;
 
   const tabItems = [
     {
       key: '1',
       label: 'Basic',
-      children: <Basic />,
+      children: (
+        <Basic
+          skills={skills}
+          setSkills={setSkills}
+          skillsValue={skillsValue}
+          setSkillsValue={setSkillsValue}
+        />
+      ),
     },
     {
       key: '2',
@@ -49,6 +56,7 @@ const TaskForm = () => {
   ];
 
   const router = useRouter();
+  const user = loggedInUserData?._id;
 
   const handleSubmit = async (values: any) => {
     try {
