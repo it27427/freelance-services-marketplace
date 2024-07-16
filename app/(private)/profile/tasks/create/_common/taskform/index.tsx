@@ -4,6 +4,7 @@ import Basic from './basic';
 import Description from './description';
 import Attachments from './attachments';
 import LoadingButton from '@/components/LoadingButton';
+import { useRouter } from 'next/navigation';
 
 const TaskForm = () => {
   const tabItems = [
@@ -23,6 +24,9 @@ const TaskForm = () => {
       children: <Attachments />,
     },
   ];
+  const router = useRouter();
+
+  const handleClick = (path) => router.push(path);
 
   return (
     <div className='mt-5'>
@@ -30,7 +34,7 @@ const TaskForm = () => {
         <Tabs defaultActiveKey='1' items={tabItems} />
 
         <div className='flex justify-end gap-6 mt-12'>
-          <Button>Cancel</Button>
+          <Button onClick={handleClick('/profile/tasks')}>Cancel</Button>
 
           <LoadingButton onClick={1} index={1} type='primary' htmlType='submit'>
             Save

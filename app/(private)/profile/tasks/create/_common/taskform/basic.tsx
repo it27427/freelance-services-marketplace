@@ -4,7 +4,7 @@ import AddSkillsForm from '@/app/(private)/profile/_common/AddSkillsForm';
 
 const Basic = () => {
   return (
-    <div>
+    <>
       <Form.Item
         label='Title'
         name='title'
@@ -30,7 +30,7 @@ const Basic = () => {
       </Form.Item>
 
       <AddSkillsForm />
-    </div>
+    </>
   );
 };
 
