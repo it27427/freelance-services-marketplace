@@ -1,5 +1,5 @@
 'use client';
-import { Form, Tabs } from 'antd';
+import { Button, Form, Tabs } from 'antd';
 import Basic from './basic';
 import Description from './description';
 import Attachments from './attachments';
@@ -29,11 +29,13 @@ const TaskForm = () => {
       <Form layout='vertical'>
         <Tabs defaultActiveKey='1' items={tabItems} />
 
-      <div className='flex justify-end'>
-        <LoadingButton onClick={1} index={1} type='primary' htmlType='submit'>
-          Save
-        </LoadingButton>
-      </div>
+        <div className='flex justify-end gap-6 mt-12'>
+          <Button>Cancel</Button>
+
+          <LoadingButton onClick={1} index={1} type='primary' htmlType='submit'>
+            Save
+          </LoadingButton>
+        </div>
       </Form>
     </div>
   );
