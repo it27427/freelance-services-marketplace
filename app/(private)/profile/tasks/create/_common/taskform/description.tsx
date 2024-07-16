@@ -1,11 +1,21 @@
-import React from 'react'
+import React from 'react';
+import Editor from 'react-simple-wysiwyg';
 
-const Description = () => {
+const Description = ({
+  description,
+  setDescription,
+}: {
+  description: string;
+  setDescription: (description: string) => void;
+}) => {
   return (
-    <div>
-      <h2>Description</h2>
-    </div>
-  )
-}
+    <>
+      <Editor
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+      />
+    </>
+  );
+};
 
-export default Description
+export default Description;
