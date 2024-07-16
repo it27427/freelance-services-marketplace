@@ -76,6 +76,8 @@ const TaskForm = () => {
       } else {
         message.error(response.message);
       }
+
+      router.push('/profile/tasks');
     } catch (error: any) {
       message.error(error?.message || 'Faild to create task!');
     } finally {
