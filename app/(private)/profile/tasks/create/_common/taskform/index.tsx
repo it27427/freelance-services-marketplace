@@ -26,7 +26,7 @@ const TaskForm = () => {
   ];
   const router = useRouter();
 
-  const handleClick = (path) => router.push(path);
+  const handleClick = (path: string) => router.push(path);
 
   return (
     <div className='mt-5'>
