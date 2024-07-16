@@ -1,16 +1,17 @@
 'use client';
-import { useState } from 'react';
+import { Button, Form, Input, Tag } from 'antd';
 
-import { Form, Button, Input, Tag } from 'antd';
-import useUserStore, { UserStoreType } from '@/store/users-store';
-
-const AddSkillsForm = () => {
-  const { loggedInUserData }: any = useUserStore() as UserStoreType;
-  const [skills, setSkills] = useState<string[]>(
-    loggedInUserData?.skills || []
-  );
-  const [skillsValue, setSkillsValue] = useState('');
-
+const AddSkills = ({
+  skills,
+  setSkills,
+  skillsValue,
+  setSkillsValue,
+}: {
+  skills: string[];
+  setSkills: React.Dispatch<React.SetStateAction<string[]>>;
+  skillsValue: string;
+  setSkillsValue: React.Dispatch<React.SetStateAction<string>>;
+}) => {
   const handleAddSkills = () => {
     const newSkills = skillsValue.split(',').map((skill) => skill.trim());
     setSkills([...skills, ...newSkills]);
@@ -64,4 +65,4 @@ const AddSkillsForm = () => {
   );
 };
 
-export default AddSkillsForm;
+export default AddSkills;

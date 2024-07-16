@@ -1,3 +1,4 @@
+'use server';
 import connectDB from '@/config/mongodb.connection';
 import Task from '@/models/task.model';
 
