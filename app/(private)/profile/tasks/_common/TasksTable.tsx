@@ -34,9 +34,16 @@ const TasksTable = ({ tasks }: { tasks: TaskType[] }) => {
       title: 'Status',
       dataIndex: 'isActive',
       key: 'status',
-      render: (value: boolean) => (
-        value ? <span className='bg-green-700 text-white p-2 rounded-sm text-sm font-semibold'>Active</span> : <span className='bg-red-700 text-white p-2 rounded-sm text-sm font-semibold'>Inactive</span>
-      )
+      render: (value: boolean) =>
+        value ? (
+          <span className='bg-green-700 text-white px-2 py-1 rounded-sm text-sm font-semibold'>
+            Active
+          </span>
+        ) : (
+          <span className='bg-red-700 text-white px-2 py-1 rounded-sm text-sm font-semibold'>
+            Inactive
+          </span>
+        ),
     },
     {
       title: 'Action',
