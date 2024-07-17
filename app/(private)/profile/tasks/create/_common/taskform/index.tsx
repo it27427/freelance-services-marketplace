@@ -21,14 +21,14 @@ const TaskForm = ({
 }) => {
   const { loggedInUserData } = useUserStore() as UserStoreType;
   const [skills, setSkills] = useState<string[]>(
-    initialValues.skillsRequired || []
+    initialValues?.skillsRequired || []
   );
   const [skillsValue, setSkillsValue] = useState('');
   const [description, setDescription] = useState<string>(
-    initialValues.description || ''
+    initialValues?.description || ''
   );
   const [existingAttachments, setExistingAttachments] = useState<any[]>(
-    initialValues.attachments || []
+    initialValues?.attachments || []
   );
   const [newAttachments, setnewAttachments] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(false);

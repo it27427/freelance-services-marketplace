@@ -1,13 +1,32 @@
 'use client';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Table } from 'antd';
+import { message, Table } from 'antd';
 import { DeleteOutlined, FormOutlined } from '@ant-design/icons';
 
 import { TaskType } from '@/interfaces';
 import { getDateTimeFormat, getDateFormat } from '@/helpers/formats';
+import { deleteTask } from '@/server-actions/tasks';
 
 const TasksTable = ({ tasks }: { tasks: TaskType[] }) => {
   const router = useRouter();
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const deleteTaskHandler = async (id: string) => {
+    try {
+      setLoading(true);
+      const response = await deleteTask(id);
+      if(response.success) {
+        message.success('Task deleted successfully!');
+      } else {
+        message.error('Failed to delete task!');
+      }
+    } catch (error: any) {
+      message.error(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const columns = [
     {
@@ -53,7 +72,7 @@ const TasksTable = ({ tasks }: { tasks: TaskType[] }) => {
       key: 'action',
       render: (text: any, record: TaskType) => (
         <div className='flex gap-5'>
-          <DeleteOutlined className='w-5 h-5 cursor-pointer text-red-700' />
+          <DeleteOutlined onClick={() => deleteTaskHandler(record._id)} className='w-5 h-5 cursor-pointer text-red-700' />
           <FormOutlined
             onClick={() => router.push(`/profile/tasks/edit/${record._id}`)}
             className='w-5 h-5 cursor-pointer text-yellow-700'
@@ -70,7 +89,7 @@ const TasksTable = ({ tasks }: { tasks: TaskType[] }) => {
 
   return (
     <div>
-      <Table dataSource={tasksWithKeys} columns={columns} />
+      <Table loading={loading} dataSource={tasksWithKeys} columns={columns} />
     </div>
   );
 };
