@@ -12,14 +12,24 @@ import { createNewTask, updateTask } from '@/server-actions/tasks';
 import { uploadFileToFirebaseAndReturnUrl } from '@/helpers/media';
 import useUserStore, { UserStoreType } from '@/store/users-store';
 
-const TaskForm = ({ initialValues = null, isEdit = false }: {
+const TaskForm = ({
+  initialValues = null,
+  isEdit = false,
+}: {
   initialValues?: any;
   isEdit?: boolean;
 }) => {
   const { loggedInUserData } = useUserStore() as UserStoreType;
-  const [skills, setSkills] = useState<string[]>(initialValues.skillsRequired || []);
+  const [skills, setSkills] = useState<string[]>(
+    initialValues.skillsRequired || []
+  );
   const [skillsValue, setSkillsValue] = useState('');
-  const [description, setDescription] = useState<string>(initialValues.description || '');
+  const [description, setDescription] = useState<string>(
+    initialValues.description || ''
+  );
+  const [existingAttachments, setExistingAttachments] = useState<any[]>(
+    initialValues.attachments || []
+  );
   const [newAttachments, setnewAttachments] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -53,6 +63,8 @@ const TaskForm = ({ initialValues = null, isEdit = false }: {
         <Attachments
           newAttachments={newAttachments}
           setnewAttachments={setnewAttachments}
+          existingAttachments={existingAttachments}
+          setExistingAttachments={setExistingAttachments}
         />
       ),
     },
@@ -73,15 +85,18 @@ const TaskForm = ({ initialValues = null, isEdit = false }: {
         delete newAttachmentsWithURL[i].file;
       }
 
-      values.attachments = newAttachmentsWithURL;
+      values.attachments = [...existingAttachments, ...newAttachmentsWithURL];
       values.skillsRequired = skills;
       values.description = description;
       values.user = user;
 
       let response = null;
 
-      if(isEdit) {
-        response = await updateTask({ taskId: initialValues._id, taskData: values });
+      if (isEdit) {
+        response = await updateTask({
+          taskId: initialValues._id,
+          taskData: values,
+        });
       } else {
         response = await createNewTask(values);
       }
@@ -102,7 +117,12 @@ const TaskForm = ({ initialValues = null, isEdit = false }: {
 
   return (
     <div className='mt-5'>
-      <Form onFinish={handleSubmit} layout='vertical' autoComplete='off' initialValues={initialValues}>
+      <Form
+        onFinish={handleSubmit}
+        layout='vertical'
+        autoComplete='off'
+        initialValues={initialValues}
+      >
         <Tabs defaultActiveKey='1' items={tabItems} />
 
         <div className='flex justify-end gap-6 mt-12'>
