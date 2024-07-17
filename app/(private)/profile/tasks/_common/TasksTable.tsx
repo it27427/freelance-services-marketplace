@@ -4,6 +4,7 @@ import { Table } from 'antd';
 import { DeleteOutlined, FormOutlined } from '@ant-design/icons';
 
 import { TaskType } from '@/interfaces';
+import { getDateTimeFormat, getDateFormat } from '@/helpers/formats';
 
 const TasksTable = ({ tasks }: { tasks: TaskType[] }) => {
   const columns = [
@@ -16,11 +17,13 @@ const TasksTable = ({ tasks }: { tasks: TaskType[] }) => {
       title: 'Created At',
       dataIndex: 'createdAt',
       key: 'createdAt',
+      render: (text: string) => getDateTimeFormat(text),
     },
     {
       title: 'Last Date To Place Bid',
       dataIndex: 'lastDateToPlaceBid',
       key: 'lastDateToPlaceBid',
+      render: (text: string) => getDateFormat(text),
     },
     {
       title: 'Bids Received',
@@ -29,8 +32,11 @@ const TasksTable = ({ tasks }: { tasks: TaskType[] }) => {
     },
     {
       title: 'Status',
-      dataIndex: 'status',
+      dataIndex: 'isActive',
       key: 'status',
+      render: (value: boolean) => (
+        value ? <span className='bg-green-700 text-white p-2 rounded-sm text-sm font-semibold'>Active</span> : <span className='bg-red-700 text-white p-2 rounded-sm text-sm font-semibold'>Inactive</span>
+      )
     },
     {
       title: 'Action',
