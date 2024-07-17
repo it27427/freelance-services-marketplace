@@ -60,7 +60,7 @@ export const deleteTask = async (taskId: string) => {
 export const getTaskPostedByLoggedInUser = async () => {
   try {
     const loggedInUser = await getCurrentUserFromMongodb();
-    const tasks = await Task.find({ postedBy: loggedInUser.data?._id });
+    const tasks = await Task.find({ user: loggedInUser.data?._id });
     return {
       success: true,
       data: JSON.parse(JSON.stringify(tasks)),
