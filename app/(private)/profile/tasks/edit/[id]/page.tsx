@@ -1,6 +1,6 @@
 import PageTitle from '@/components/PageTitle';
 
-const page = () => {
+const EditTaskPage = async ({ params }: { params: { id: string } }) => {
   return (
     <div>
       <PageTitle title='Edit Task' />
@@ -8,4 +8,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default EditTaskPage;

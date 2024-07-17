@@ -72,3 +72,18 @@ export const getTaskPostedByLoggedInUser = async () => {
     };
   }
 };
+
+export const getTaskById = async (taskId: string) => {
+  try {
+    const task = await Task.findById(taskId);
+    return {
+      success: true,
+      data: JSON.parse(JSON.stringify(task)),
+    };
+  } catch (error: any) {
+    return {
+      success: false,
+      message: error.message,
+    };
+  }
+};
