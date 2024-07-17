@@ -8,15 +8,18 @@ import Description from './description';
 import Attachments from './attachments';
 import LoadingButton from '@/components/LoadingButton';
 
-import { createNewTask } from '@/server-actions/tasks';
+import { createNewTask, updateTask } from '@/server-actions/tasks';
 import { uploadFileToFirebaseAndReturnUrl } from '@/helpers/media';
 import useUserStore, { UserStoreType } from '@/store/users-store';
 
-const TaskForm = () => {
+const TaskForm = ({ initialValues = null, isEdit = false }: {
+  initialValues?: any;
+  isEdit?: boolean;
+}) => {
   const { loggedInUserData } = useUserStore() as UserStoreType;
-  const [skills, setSkills] = useState<string[]>([]);
+  const [skills, setSkills] = useState<string[]>(initialValues.skillsRequired || []);
   const [skillsValue, setSkillsValue] = useState('');
-  const [description, setDescription] = useState<string>('');
+  const [description, setDescription] = useState<string>(initialValues.description || '');
   const [newAttachments, setnewAttachments] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -77,7 +80,11 @@ const TaskForm = () => {
 
       let response = null;
 
-      response = await createNewTask(values);
+      if(isEdit) {
+        response = await updateTask({ taskId: initialValues._id, taskData: values });
+      } else {
+        response = await createNewTask(values);
+      }
 
       if (response.success) {
         message.success(response.message);
@@ -95,7 +102,7 @@ const TaskForm = () => {
 
   return (
     <div className='mt-5'>
-      <Form onFinish={handleSubmit} layout='vertical' autoComplete='off'>
+      <Form onFinish={handleSubmit} layout='vertical' autoComplete='off' initialValues={initialValues}>
         <Tabs defaultActiveKey='1' items={tabItems} />
 
         <div className='flex justify-end gap-6 mt-12'>

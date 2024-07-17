@@ -1,4 +1,5 @@
 'use server';
+import { revalidatePath } from 'next/cache'
 import connectDB from '@/config/mongodb.connection';
 import Task from '@/models/task.model';
 import { getCurrentUserFromMongodb } from './users';
@@ -9,6 +10,7 @@ export const createNewTask = async (taskData: any) => {
   try {
     const newTask = await Task(taskData);
     await newTask.save();
+    revalidatePath('/profile/tasks');
     return {
       success: true,
       message: 'Task created successfully!',
@@ -30,6 +32,7 @@ export const updateTask = async ({
 }) => {
   try {
     await Task.findByIdAndUpdate(taskId, taskData);
+    revalidatePath('/profile/tasks');
     return {
       success: true,
       message: 'Task updated successfully!',
@@ -45,6 +48,7 @@ export const updateTask = async ({
 export const deleteTask = async (taskId: string) => {
   try {
     await Task.findByIdAndDelete(taskId);
+    revalidatePath('/profile/tasks');
     return {
       success: true,
       message: 'Task deleted successfully!',

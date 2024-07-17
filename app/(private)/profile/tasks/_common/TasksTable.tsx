@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Table } from 'antd';
 import { DeleteOutlined, FormOutlined } from '@ant-design/icons';
 
@@ -7,6 +8,8 @@ import { TaskType } from '@/interfaces';
 import { getDateTimeFormat, getDateFormat } from '@/helpers/formats';
 
 const TasksTable = ({ tasks }: { tasks: TaskType[] }) => {
+  const router = useRouter();
+
   const columns = [
     {
       title: 'Title',
@@ -49,10 +52,13 @@ const TasksTable = ({ tasks }: { tasks: TaskType[] }) => {
       title: 'Action',
       dataIndex: 'action',
       key: 'action',
-      render: () => (
+      render: (text: any, record: TaskType) => (
         <div className='flex gap-5'>
           <DeleteOutlined className='w-5 h-5 cursor-pointer text-red-700' />
-          <FormOutlined className='w-5 h-5 cursor-pointer text-yellow-700' />
+          <FormOutlined
+            onClick={() => router.push(`/profile/tasks/edit/${record._id}`)}
+            className='w-5 h-5 cursor-pointer text-yellow-700'
+          />
         </div>
       ),
     },
