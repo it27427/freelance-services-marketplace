@@ -1,6 +1,7 @@
-import React from 'react'
+'use client';
+import { useState } from 'react';
 
-const TasksTable = () => {
+const TasksTable = ({ tasks }: { tasks: TaskType[] }) => {
   return (
     <div>
       TasksTable
@@ -8,4 +9,4 @@ const TasksTable = () => {
   )
 }
 
-export default TasksTable
+export default TasksTable;
