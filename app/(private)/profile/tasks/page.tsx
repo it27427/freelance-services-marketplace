@@ -1,7 +1,10 @@
 import LinkButton from '@/components/LinkButton';
 import PageTitle from '@/components/PageTitle';
+import { getTaskPostedByLoggedInUser } from '@/server-actions/tasks';
 
-const TasksPage = () => {
+const TasksPage = async () => {
+  const tasks = getTaskPostedByLoggedInUser();
+
   return (
     <div>
       <div className='flex items-center justify-between'>
