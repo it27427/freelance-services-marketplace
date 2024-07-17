@@ -136,3 +136,12 @@ button {
 :where(.css-dev-only-do-not-override-140ko63).ant-tag.ant-tag-has-color .anticon-close:hover {
   margin-left: .5rem;
 }
+
+table {
+  border: solid 0.0625rem #CBCBCB;
+}
+
+.ant-table-cell svg {
+  width: 100%;
+  height: 100%;
+}

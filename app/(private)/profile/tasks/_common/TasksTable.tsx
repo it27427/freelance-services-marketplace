@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { Table } from 'antd';
+import { DeleteOutlined, FormOutlined } from '@ant-design/icons';
 
 import { TaskType } from '@/interfaces';
 
@@ -20,6 +21,27 @@ const TasksTable = ({ tasks }: { tasks: TaskType[] }) => {
       title: 'Last Date To Place Bid',
       dataIndex: 'lastDateToPlaceBid',
       key: 'lastDateToPlaceBid',
+    },
+    {
+      title: 'Bids Received',
+      dataIndex: 'bidsReceived',
+      key: 'bidsReceived',
+    },
+    {
+      title: 'Status',
+      dataIndex: 'status',
+      key: 'status',
+    },
+    {
+      title: 'Action',
+      dataIndex: 'action',
+      key: 'action',
+      render: () => (
+        <div className='flex gap-5'>
+          <DeleteOutlined className='w-5 h-5 cursor-pointer text-red-700' />
+          <FormOutlined className='w-5 h-5 cursor-pointer text-yellow-700' />
+        </div>
+      ),
     },
   ];
 
