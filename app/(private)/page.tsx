@@ -14,6 +14,7 @@ export default async function Home() {
 
       <div className='grid grid-cols-3'>
         <div className='col-span-2'></div>
+        <div className='col-span-1'></div>
       </div>
     </div>
   );
