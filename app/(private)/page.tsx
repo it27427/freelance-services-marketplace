@@ -15,7 +15,7 @@ export default async function Home() {
     <div>
       <HomeHeader />
 
-      <div className='grid grid-cols-3'>
+      <div className='grid grid-cols-3 gap-5'>
         <div className='col-span-2'>
           <Filters />
           <TasksData />
