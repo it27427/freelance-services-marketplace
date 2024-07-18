@@ -94,7 +94,7 @@ const Basic = ({
       </div>
 
       <div className='flex items-center gap-5'>
-        <label htmlFor='status' className='text-sm'>Status</label>
+        <label htmlFor='status' className='text-sm cursor-pointer'>Status</label>
         <Switch defaultChecked onChange={setIsActive} id='status' />
       </div>
     </>
