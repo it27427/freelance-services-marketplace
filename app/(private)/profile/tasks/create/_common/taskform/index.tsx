@@ -27,6 +27,9 @@ const TaskForm = ({
   const [description, setDescription] = useState<string>(
     initialValues?.description || ''
   );
+  const [isActive = true, setIsActive] = useState<boolean>(
+    initialValues?.isActive
+  );
   const [existingAttachments, setExistingAttachments] = useState<any[]>(
     initialValues?.attachments || []
   );
