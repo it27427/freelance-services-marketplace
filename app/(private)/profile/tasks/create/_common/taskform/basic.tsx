@@ -1,17 +1,21 @@
 'use client';
 import { useState } from 'react';
-import { Button, Form, Input, Tag } from 'antd';
+import { Button, Form, Input, Switch, Tag } from 'antd';
 
 const Basic = ({
   skills,
   setSkills,
   skillsValue,
   setSkillsValue,
+  isActive,
+  setIsActive,
 }: {
   skills: string[];
   setSkills: React.Dispatch<React.SetStateAction<string[]>>;
   skillsValue: string;
   setSkillsValue: React.Dispatch<React.SetStateAction<string>>;
+  isActive: boolean;
+  setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const handleAddSkills = () => {
     const newSkills = skillsValue.split(',').map((skill) => skill.trim());
@@ -87,6 +91,11 @@ const Basic = ({
             ))}
           </div>
         </div>
+      </div>
+
+      <div className='flex items-center gap-5'>
+        <label htmlFor='status' className='text-sm'>Status</label>
+        <Switch defaultChecked onChange={setIsActive} id='status' />
       </div>
     </>
   );

@@ -46,6 +46,8 @@ const TaskForm = ({
           setSkills={setSkills}
           skillsValue={skillsValue}
           setSkillsValue={setSkillsValue}
+          isActive={isActive}
+          setIsActive={setIsActive}
         />
       ),
     },
