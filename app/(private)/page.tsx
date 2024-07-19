@@ -12,7 +12,7 @@ export default async function Home() {
   // const { clerkUserId, name, email, phone, profilePic: imageURL } = currentuser;
 
   return (
-    <div>
+    <div className='flex flex-col gap-7'>
       <HomeHeader />
 
       <div className='grid grid-cols-3 gap-5'>
