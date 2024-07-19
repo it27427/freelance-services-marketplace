@@ -14,8 +14,12 @@ const TasksData = async () => {
   }
 
   return (
-    <div>
-      <h1>TasksData</h1>
+    <div className='flex flex-col gap-7'>
+      {tasks.map((task: any) => (
+        <div>
+          <h2 className='text-lg text-secondary m-0'>{task.title}</h2>
+        </div>
+      ))}
     </div>
   );
 };
