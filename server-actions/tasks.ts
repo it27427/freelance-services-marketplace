@@ -1,5 +1,5 @@
 'use server';
-import { revalidatePath } from 'next/cache'
+import { revalidatePath } from 'next/cache';
 import connectDB from '@/config/mongodb.connection';
 import Task from '@/models/task.model';
 import { getCurrentUserFromMongodb } from './users';
@@ -64,7 +64,9 @@ export const deleteTask = async (taskId: string) => {
 export const getTaskPostedByLoggedInUser = async () => {
   try {
     const loggedInUser = await getCurrentUserFromMongodb();
-    const tasks = await Task.find({ user: loggedInUser.data?._id }).sort({ createdAt: -1 });
+    const tasks = await Task.find({ user: loggedInUser.data?._id }).sort({
+      createdAt: -1,
+    });
     return {
       success: true,
       data: JSON.parse(JSON.stringify(tasks)),
@@ -80,6 +82,21 @@ export const getTaskPostedByLoggedInUser = async () => {
 export const getTaskById = async (taskId: string) => {
   try {
     const task = await Task.findById(taskId);
+    return {
+      success: true,
+      data: JSON.parse(JSON.stringify(task)),
+    };
+  } catch (error: any) {
+    return {
+      success: false,
+      message: error.message,
+    };
+  }
+};
+
+export const getAllTasks = async () => {
+  try {
+    const task = await Task.find().populate('user').sort({ createdAt: -1 });
     return {
       success: true,
       data: JSON.parse(JSON.stringify(task)),

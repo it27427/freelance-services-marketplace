@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TasksData = () => {
+const TasksData = async () => {
   return (
     <div>
       <h1>TasksData</h1>
