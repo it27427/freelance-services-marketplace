@@ -1,10 +1,12 @@
+import React from 'react';
+
 import { getDateTimeFormat } from '@/helpers/formats';
 import { getAllTasks } from '@/server-actions/tasks';
-import React from 'react';
+import { TaskType } from '@/interfaces';
 
 const TasksData = async () => {
   const response = await getAllTasks();
-  let tasks = [];
+  let tasks: TaskType[] = [];
 
   if (response.success) {
     tasks = response.data;
@@ -16,7 +18,7 @@ const TasksData = async () => {
 
   return (
     <div className='flex flex-col gap-7'>
-      {tasks.map((task: any) => (
+      {tasks.map((task: TaskType) => (
         <div className='border border-solid border-gray-300 p-5 flex flex-col gap-4'>
           <hgroup className='flex flex-col gap-2'>
             <h2 className='text-lg text-secondary m-0'>{task.title}</h2>
@@ -24,7 +26,7 @@ const TasksData = async () => {
           </hgroup>
 
           <div className='flex flex-wrap gap-5'>
-            {task.skillRequired.map((skill: string) => (
+            {task.skillsRequired.map((skill: string) => (
               <span className='bg-secondary text-white px-2 py-1 text-xs'>
                 {skill}
               </span>
