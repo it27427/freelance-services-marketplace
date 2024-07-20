@@ -35,6 +35,8 @@ const TaskDetailsPage = async ({ params }: { params: { id: string } }) => {
       </header>
 
       <hr className='my-5 border border-solid border-gray-300' />
+
+      <div></div>
     </div>
   );
 };
