@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button, Input, Upload } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 
@@ -104,7 +103,11 @@ const Attachments = ({
               maxCount={1}
               disabled
             ></Upload>
-            <Button onClick={() => {removeExistingAttachmentHandler(index)}}>
+            <Button
+              onClick={() => {
+                removeExistingAttachmentHandler(index);
+              }}
+            >
               <DeleteOutlined />
               Remove
             </Button>
