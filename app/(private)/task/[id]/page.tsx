@@ -37,7 +37,11 @@ const TaskDetailsPage = async ({ params }: { params: { id: string } }) => {
 
       <hr className='my-5 border border-solid border-gray-300' />
 
-      <div></div>
+      <p>
+        {
+          parse(task.description)
+        }
+      </p>
     </div>
   );
 };
