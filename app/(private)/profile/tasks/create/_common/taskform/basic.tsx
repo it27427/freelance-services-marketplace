@@ -93,7 +93,7 @@ const Basic = ({
         </div>
       </div>
 
-      <div className='flex items-center gap-5'>
+      <div className='flex items-center gap-5 mt-8'>
         <label htmlFor='status' className='text-sm cursor-pointer'>
           Status{' '}
           <span className='text-xs'>(Switch to Activate/Deactivate)</span>
