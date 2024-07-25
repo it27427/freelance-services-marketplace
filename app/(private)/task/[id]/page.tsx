@@ -3,6 +3,7 @@ import parse from 'html-react-parser';
 
 import { getTaskById } from '@/server-actions/tasks';
 import { getDateTimeFormat } from '@/helpers/formats';
+import Attachments from './_common/attachments';
 
 const TaskDetailsPage = async ({ params }: { params: { id: string } }) => {
   const taskResponse = await getTaskById(params.id);
@@ -42,6 +43,10 @@ const TaskDetailsPage = async ({ params }: { params: { id: string } }) => {
           parse(task.description)
         }
       </div>
+
+      <hr className='my-5 border border-solid border-gray-300' />
+
+      <Attachments task={task} />
     </div>
   );
 };
