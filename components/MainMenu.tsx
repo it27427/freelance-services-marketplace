@@ -1,6 +1,6 @@
 'use client';
 import { useAuth } from '@clerk/nextjs';
-import { usePathname, useRouter } from 'next/navigation';
+import { useParams, usePathname, useRouter } from 'next/navigation';
 
 import { AiOutlineHome } from 'react-icons/ai';
 import { FiUser } from 'react-icons/fi';
@@ -11,6 +11,7 @@ import { PiSignOut } from 'react-icons/pi';
 const MainMenu = () => {
   const pathName = usePathname();
   const router = useRouter();
+  const params = useParams();
   const iconSize = 15;
   const { signOut } = useAuth();
 
@@ -24,7 +25,7 @@ const MainMenu = () => {
       name: 'Home',
       href: '/',
       icon: <AiOutlineHome size={iconSize} />,
-      isActive: pathName === '/',
+      isActive: pathName === '/' || pathName === `/task/${params.id}`,
     },
     {
       name: 'Profile',
