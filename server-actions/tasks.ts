@@ -81,7 +81,7 @@ export const getTaskPostedByLoggedInUser = async () => {
 
 export const getTaskById = async (taskId: string) => {
   try {
-    const task = await Task.findById(taskId).populate('user');
+    const task = await Task.findById(taskId);
     return {
       success: true,
       data: JSON.parse(JSON.stringify(task)),
@@ -96,7 +96,7 @@ export const getTaskById = async (taskId: string) => {
 
 export const getAllTasks = async () => {
   try {
-    const task = await Task.find().populate('user').sort({ createdAt: -1 });
+    const task = await Task.find().sort({ createdAt: -1 });
     return {
       success: true,
       data: JSON.parse(JSON.stringify(task)),

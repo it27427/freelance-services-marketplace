@@ -13,7 +13,7 @@ const TasksData = async () => {
   }
 
   if (tasks.length === 0) {
-    return <span className='text-gray-500'>No Task Found!</span>;
+    return <span className='text-gray-500 '>No Task Found!</span>;
   }
 
   return (
