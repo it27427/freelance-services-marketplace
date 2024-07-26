@@ -41,11 +41,11 @@ const userSchema = new mongoose.Schema<IUser>(
     },
     bio: {
       type: String,
-      required: true,
+      required: false,
     },
     portfolio: {
       type: String,
-      required: true,
+      required: false,
     },
   },
   { timestamps: true }

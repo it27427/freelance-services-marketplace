@@ -18,8 +18,9 @@ export default function Page() {
           />
         </figure>
       </div>
+      
       <div className='flex items-center justify-center py-6 px-4 w-full lg:w-1/2 h-full lg:overflow-hidden'>
-        <div className='lg:max-h-96 lg:overflow-y-scroll lg:no-scrollbar'>
+        <div className='lg:max-h-96 no-scrollbar lg:overflow-y-scroll'>
           <SignUp />
         </div>
       </div>
