@@ -4,7 +4,7 @@ import { TaskType } from '@/interfaces';
 const Attachments = ({ task }: { task: TaskType }) => {
 
   const downloadAttachment = async (url: string) => {
-  window.open(url, '_blank');
+    window.open(url, '_blank');
   };
 
   return (
