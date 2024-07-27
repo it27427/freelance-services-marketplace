@@ -1,5 +1,5 @@
 'use client';
-import { Button, Modal } from 'antd';
+import { Button, Form, Modal, Input } from 'antd';
 import { useState } from 'react';
 import { TaskType } from '@/interfaces';
 
@@ -21,7 +21,14 @@ const PlaceBid = ({ task }: { task: TaskType }) => {
             title='Place Your Bid'
             centered
             closable
-            onCancel={() => setShowPlaceBidModal(false)}></Modal>
+            onCancel={() => setShowPlaceBidModal(false)}
+            footer={null}>
+              <Form layout='vertical'>
+                <Form.Item name='bidamount' label='Bid Amount'>
+                  <Input />
+                </Form.Item>
+              </Form>
+            </Modal>
         )
       }
     </>
