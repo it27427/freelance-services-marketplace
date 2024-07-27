@@ -4,6 +4,7 @@ import parse from 'html-react-parser';
 import { getTaskById } from '@/server-actions/tasks';
 import { getDateTimeFormat } from '@/helpers/formats';
 import Attachments from './_common/attachments';
+import PlaceBid from './_common/placebid';
 
 const TaskDetailsPage = async ({ params }: { params: { id: string } }) => {
   const taskResponse = await getTaskById(params.id);
@@ -49,6 +50,8 @@ const TaskDetailsPage = async ({ params }: { params: { id: string } }) => {
       <Attachments task={task} />
 
       <hr className='my-5 border border-solid border-gray-300' />
+
+      <PlaceBid task={task} />
     </div>
   );
 };

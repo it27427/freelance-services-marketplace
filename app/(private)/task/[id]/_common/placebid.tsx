@@ -1,9 +1,10 @@
-import React from 'react'
+import { Button } from 'antd';
+import { TaskType } from '@/interfaces';
 
-const PlaceBid = () => {
+const PlaceBid = ({ task }: { task: TaskType }) => {
   return (
-    <div>
-      <h4>PlaceBid</h4>
+    <div className='flex justify-center'>
+      <Button>Place Bid</Button>
     </div>
   )
 }
