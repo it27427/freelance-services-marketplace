@@ -6,6 +6,8 @@ import { TaskType } from '@/interfaces';
 const PlaceBid = ({ task }: { task: TaskType }) => {
   const [showPlaceBidModal, setShowPlaceBidModal] = useState(false);
 
+  const handlePlaceBid = (value: any) => {};
+
   return (
     <>
       <div className='flex justify-center'>
@@ -23,10 +25,27 @@ const PlaceBid = ({ task }: { task: TaskType }) => {
             closable
             onCancel={() => setShowPlaceBidModal(false)}
             footer={null}>
-              <Form layout='vertical'>
-                <Form.Item name='bidamount' label='Bid Amount'>
+              <hr className='my-5 border border-solid border-gray-300' />
+
+              <Form layout='vertical' onFinish={handlePlaceBid}>
+                <Form.Item name='bidamount' label='Bid Amount' rules={[{ required: true, message: 'Please fill your bid amount.' }]}>
                   <Input />
                 </Form.Item>
+                
+                <Form.Item name='deadline' label='Estimated days to complete' rules={[{ required: true, message: 'Please fill your deadline.' }]}>
+                  <Input />
+                </Form.Item>
+                
+                <Form.Item name='message' label='Message' rules={[{ required: true, message: 'Please fill your message.' }]}>
+                  <Input.TextArea />
+                </Form.Item>
+
+                <div className="flex justify-end gap-5">
+                  <Button onClick={() => setShowPlaceBidModal(false)}>
+                    Cancel
+                  </Button>
+                  <Button type='primary' htmlType='submit'>Place Bid</Button>
+                </div>
               </Form>
             </Modal>
         )
