@@ -1,4 +1,4 @@
-import mongoose, { Document } from 'mongoose';
+import mongoose from 'mongoose';
 
 const bidSchema = new mongoose.Schema({
   bidamount: {
@@ -21,7 +21,7 @@ const bidSchema = new mongoose.Schema({
   client: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'users',
-    required: true
+    required: false
   },
   task: {
     type: mongoose.Schema.Types.ObjectId,
